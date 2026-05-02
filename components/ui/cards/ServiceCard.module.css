@@ -1,0 +1,155 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  position: relative;
+  padding: 20px 16px;
+  width: 100%;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.content {
+  z-index: 2;
+  position: relative;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #1B1B1B;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #818181;
+  margin: 0;
+}
+
+.imageWrapper {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 1;
+}
+
+.image {
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+/* Variant Specifics */
+
+.large-vertical {
+  height: 434px;
+}
+
+.large-vertical .title {
+  font-size: 32px;
+  line-height: 48px;
+  margin-top: 20px;
+}
+
+.large-vertical .description {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.small-vertical {
+  height: 227px;
+}
+
+.contact-vertical {
+  height: 226px;
+}
+
+.small-vertical .title {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.small-vertical .description {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.medium-horizontal {
+  height: 227px;
+}
+
+.medium-horizontal .title {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.medium-horizontal .description {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.small-horizontal {
+  height: 184px;
+}
+
+.small-horizontal .title {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.small-horizontal .description {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.large-horizontal {
+  height: 183px;
+}
+
+.large-horizontal .title {
+  font-size: 32px;
+  line-height: 48px;
+}
+
+.large-horizontal .description {
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.events-horizontal {
+  height: 183px;
+}
+
+.events-horizontal .title {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.events-horizontal .description {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+@media (max-width: 1200px) {
+  .card {
+    height: auto !important;
+    min-height: 200px;
+  }
+
+  .imageWrapper {
+    position: relative;
+    height: 150px;
+    margin-top: 20px;
+  }
+}

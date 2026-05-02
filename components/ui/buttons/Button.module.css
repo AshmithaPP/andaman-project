@@ -1,0 +1,43 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  transition: opacity 0.2s ease;
+  padding: 8px 12px;
+  border-radius: 4px;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.primary {
+  min-width: 112px;
+  width: fit-content;
+  height: 40px;
+  background-color: #FFC83D;
+  color: #1D3557;
+  padding: 8px 24px;
+}
+
+.secondary {
+  /* Add secondary styles if needed in future */
+  background-color: transparent;
+  border: 1px solid #FFC83D;
+  color: #FFC83D;
+  padding: 8px 24px;
+}
+
+.blue {
+  background-color: #1D3557;
+  color: #FFFFFF;
+  padding: 8px 24px;
+}

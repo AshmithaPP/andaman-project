@@ -1,0 +1,226 @@
+.section {
+  width: 100%;
+  height: 320px;
+  background: #ffffff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  height: 100%;
+  position: relative;
+}
+
+.leftBlock {
+  position: absolute;
+  top: 44px;
+  left: 56px;
+  width: 557px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.textGroup {
+  width: 557px;
+  margin-bottom: 86px;
+}
+
+.exploreText {
+  width: 557px;
+  height: 60px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 60px;
+  color: #000000;
+  margin: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-end;
+  height: 54px;
+}
+
+.eventsText {
+  width: 201px;
+  height: 54px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 54px;
+  color: #006D77;
+}
+
+.acrossText {
+  width: 345px;
+  height: 37px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 37px;
+  color: #000000;
+  margin-left: 8px;
+}
+
+.searchBoxWrapper {
+  position: absolute;
+  top: 220px;
+  left: 40px;
+  z-index: 100;
+}
+
+.carouselBlock {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 669px;
+  height: 228px;
+  background: #D9D9D9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselLabel {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1880px) {
+  .section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 1440px) {
+  .section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  /* Re-adjust absolute positions to be 0 within the padded container */
+  .leftBlock {
+    left: 40px;
+    /* Aligning with Navbar's mobile/small tablet padding if applicable */
+  }
+
+  .searchBoxWrapper {
+    left: 40px;
+  }
+
+  .carouselBlock {
+    right: 40px;
+  }
+}
+
+/* Maintain side-by-side layout down to 1000px but adjust for overlap */
+@media (max-width: 1350px) and (min-width: 1001px) {
+  .leftBlock {
+    width: 45%;
+    left: 40px;
+  }
+
+  .searchBoxWrapper {
+    left: 40px;
+    width: 45%;
+  }
+
+  .carouselBlock {
+    width: 48%;
+    right: 40px;
+  }
+
+  .exploreText,
+  .acrossText {
+    font-size: 32px;
+  }
+
+  .eventsText {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .section {
+    height: auto;
+    padding-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .leftBlock,
+  .searchBoxWrapper,
+  .carouselBlock {
+    position: static;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 557px;
+    height: auto;
+  }
+
+  .searchBoxWrapper {
+    order: 2;
+  }
+
+  .leftBlock {
+    order: 1;
+    height: auto;
+  }
+
+  .carouselBlock {
+    order: 3;
+    max-width: 669px;
+    height: 228px;
+  }
+
+  .exploreText,
+  .acrossText {
+    font-size: 28px;
+    line-height: 1.2;
+    width: 100%;
+    height: auto;
+  }
+
+  .eventsText {
+    font-size: 40px;
+    line-height: 1.2;
+    width: auto;
+    height: auto;
+  }
+
+  .titleRow {
+    height: auto;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 1000px) {
+  .textGroup {
+    margin-bottom: 20px !important;
+    text-align: center;
+    width: 100%;
+  }
+}

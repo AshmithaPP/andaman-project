@@ -1,0 +1,74 @@
+/* ============================================================
+   NewsCard.module.css
+   Card styles only — section-level styles live in NewsSection.module.css
+   Design spec @ 1440px: card = 322×371, image = 322×275
+   ============================================================ */
+
+/* ── Base card ────────────────────────────────────────────── */
+.card {
+  flex: 1;
+  min-width: 0;
+  height: 371px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Image wrapper: 322×275, border-radius 8 ──────────────── */
+.imageWrapper {
+  width: 100%;
+  height: 275px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #D9D9D9;
+  position: relative; /* required for next/image fill */
+}
+
+.cardImage {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ── Text content ─────────────────────────────────────────── */
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Title: Poppins 500 20px / 24px — #1B1B1B */
+.cardTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #1B1B1B;
+  margin: 0;
+}
+
+/* Description: Poppins 400 16px / 24px — #595959 */
+.cardDescription {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #595959;
+  margin: 0;
+}
+
+/* ── Variant: image-bottom (Scuba Diving) ─────────────────── */
+/* Content appears first, image below — handled in TSX order  */
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .card {
+    flex-shrink: 0;
+    min-width: 280px;
+    height: auto;
+  }
+
+  .imageWrapper {
+    height: 220px;
+  }
+}

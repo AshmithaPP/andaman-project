@@ -1,0 +1,136 @@
+/* ═══════════════════════════════════════════════════════
+   Footer.module.css
+   ═══════════════════════════════════════════════════════ */
+
+/* Google Font import – Estrella (cursive brand font) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+/* ── Outer footer shell ───────────────────────────────── */
+.footer {
+  width: 100%;
+  min-height: 283px;
+  background: #1b1b1b;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Inner container (max 1440px, centred) ────────────── */
+.container {
+  width: 100%;
+  max-width: 1880px;
+  margin: 0 auto;
+  padding: 50px 155px;          
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Brand / left section ─────────────────────────────── */
+.brand {
+  width: 191px;
+  height: 183px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+/* ── Logo ─────────────────────────────────────────────── */
+.logo {
+  width: 191px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  object-fit: contain;
+}
+/* ── Contact list ─────────────────────────────────────── */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+/* ── Individual contact row ───────────────────────────── */
+.contactRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  height: 24px;
+}
+
+/* ── SVG icon ─────────────────────────────────────────── */
+.icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* ── Contact text / email link ────────────────────────── */
+.contactText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contactText:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* ── Right spacer (reserved for future nav / socials) ─── */
+.spacer {
+  flex: 1;
+}
+
+/* ═══════════════════════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
+    padding: 40px 48px;
+  }
+
+  .logo {
+    font-size: 64px;
+    line-height: 96px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .footer {
+    min-height: auto;
+  }
+
+  .container {
+    padding: 40px 24px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand {
+    width: auto;
+    height: auto;
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    font-size: 52px;
+    line-height: 72px;
+  }
+
+  .contactRow {
+    justify-content: center;
+  }
+}

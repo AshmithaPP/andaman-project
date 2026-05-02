@@ -1,0 +1,184 @@
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 207 / 184;
+  border-radius: 8px;
+  background: #D9D9D9;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.ratingTag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 46px;
+  height: 22px;
+  background: rgba(109, 78, 0, 0.4); /* #6D4E0066 */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 2px 4px;
+}
+
+.starIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.ratingText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #FFFFFF;
+}
+
+.likeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22.33px;
+  height: 22px;
+  background: rgba(109, 78, 0, 0.42); /* #6D4E006B */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  padding: 5px 4.5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  width: 100%;
+  height: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.location {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #C4A964;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.host {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #C7C7C7;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cardLink:hover .card {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease;
+}
+
+/* Responsive Scaling for large screens */
+@media (min-width: 1441px) {
+  .title {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .location, .host {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .ratingTag {
+    width: 56px;
+    height: 28px;
+  }
+  .ratingText {
+    font-size: 14px;
+  }
+  .likeBtn {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Responsive Scaling for mobile */
+@media (max-width: 600px) {
+  .card {
+    width: 280px;
+    margin: 0 auto;
+  }
+}
+
+.navBtn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #E3E3E3;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: #006D77;
+  padding: 0;
+}
+
+.prevBtn {
+  left: -10px;
+}
+
+.nextBtn {
+  right: -10px;
+}
+
+@media (max-width: 650px) {
+  .navBtn {
+    display: flex;
+  }
+}

@@ -1,0 +1,111 @@
+.cardContainer {
+  width: 100%;
+  max-width: 1700px;
+  background: #FFFFFF;
+  border: 1px solid #DFDEDE;
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  gap: 24px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.gallerySection {
+  flex: 1;
+  min-width: 0;
+}
+
+.detailsSection {
+  width: 378px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #595959;
+}
+
+.ctaWrapper {
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+.ctaButton {
+  width: fit-content !important;
+  height: 40px !important;
+  font-size: 14px !important;
+  color: #1D3557 !important;
+  border-color: #FFC83D !important;
+}
+
+@media (max-width: 1360px) {
+  .cardContainer {
+    width: 95%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cardContainer {
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+  }
+
+  .detailsSection {
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .cardContainer {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .detailsSection {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .ctaWrapper {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 576px) {
+  .cardContainer {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}

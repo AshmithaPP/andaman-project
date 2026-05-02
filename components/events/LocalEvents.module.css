@@ -1,0 +1,190 @@
+.section {
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  padding: 0 40px;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 10;
+}
+
+.titleWrapper {
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 24px;
+  row-gap: 40px;
+  margin-bottom: 20px;
+}
+
+/* Scaling for larger screens (above 1440px) */
+@media (min-width: 1441px) {
+  .title {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  
+  /* Maintain tight gaps to maximize card width */
+  .grid {
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.page {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+  cursor: pointer;
+  padding: 0 2px;
+  min-width: 12px;
+  text-align: center;
+}
+
+.page.active {
+  color: #006D77;
+}
+
+.ellipsis {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: 1px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1600px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .section {
+    padding-bottom: 20px;
+  }
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-right: -20px; /* Allow cards to go to the edge */
+    padding-right: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar for cleaner look */
+  }
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+  .grid > * {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    justify-content: center;
+  }
+  .titleWrapper {
+    text-align: center;
+  }
+  .pagination {
+    justify-content: center;
+    margin-bottom:25px;
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.navBtn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #E3E3E3;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: #006D77;
+}
+
+.prevBtn {
+  left: -10px;
+}
+
+.nextBtn {
+  right: -10px;
+}
+
+@media (max-width: 650px) {
+  .navBtn {
+    display: flex;
+  }
+}

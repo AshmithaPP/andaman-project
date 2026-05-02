@@ -1,0 +1,104 @@
+.section {
+  width: 100%;
+  background: #ffffff;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  padding: 0 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 24px;
+  row-gap: 40px;
+}
+
+/* Maintain tight gaps to maximize card width above 1440px */
+@media (min-width: 1441px) {
+  .grid {
+    column-gap: 24px;
+    row-gap: 40px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .section {
+    padding-bottom: 20px;
+  }
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-right: -20px;
+    padding-right: 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+  .grid > * {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+  .navBtn {
+    display: flex;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.navBtn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #E3E3E3;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: #006D77;
+}
+
+.prevBtn {
+  left: -5px;
+}
+
+.nextBtn {
+  right: -5px;
+}

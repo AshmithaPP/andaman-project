@@ -1,0 +1,179 @@
+.sectionWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1660px;
+}
+
+.mainLayout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Left Content Column */
+.leftColumn {
+  width: 437px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.heading {
+  font-family: var(--font-poppins);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 28px;
+  color: #1B1B1B;
+  margin: 0;
+  max-width: 311px;
+}
+
+.description {
+  font-family: var(--font-poppins);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #595959;
+  margin: 0;
+}
+
+.button {
+  width: fit-content;
+  padding: 12px 32px;
+}
+
+/* Posters Row */
+.postersRow {
+  display: flex;
+  gap: 24px;
+}
+
+.poster {
+  width: 207px;
+  height: 357px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #f5f5f5;
+}
+
+/* Right Grid Column */
+.rightColumn {
+  flex: 1;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Above 1440px special handling */
+@media (min-width: 1440px) {
+  .productGrid {
+    gap: 12px; /* Reducing gaps as per user request */
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 1440px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .productGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 991px) {
+  .sectionWrapper {
+    padding: 40px 0;
+  }
+
+  .mainLayout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  
+  .leftColumn {
+    width: 100%;
+    gap: 32px;
+  }
+  
+  .contentBlock {
+    gap: 24px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .heading {
+    font-size: 28px;
+    line-height: 1.2;
+    max-width: 100%;
+  }
+  
+  .description {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 100%;
+  }
+
+  .postersRow {
+    display: none; /* Hide posters on mobile to focus on products carousel */
+  }
+  
+  .rightColumn {
+    width: 100%;
+    margin-left: -40px; /* Offset parent padding to allow full-width scroll */
+    width: calc(100% + 80px);
+  }
+
+  .productGrid {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 10px 40px 30px; /* Padding for scroll-snap and shadow */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .productGrid::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  /* Make ProductCard responsive within carousel */
+  .productGrid > div {
+    flex: 0 0 240px; /* Fixed width for carousel items */
+    scroll-snap-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .heading {
+    font-size: 24px;
+  }
+
+  .productGrid > div {
+    flex: 0 0 220px;
+  }
+}
+

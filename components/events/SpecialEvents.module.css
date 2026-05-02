@@ -1,0 +1,158 @@
+.section {
+  width: 100%;
+  background: #ffffff;
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  padding: 0 40px;
+}
+
+.sectionTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 48px;
+  color: #006D77;
+  margin: 0 0 24px 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 449 / 209;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.eventImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.locationTag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 20px;
+  border-radius: 42px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.2); /* Fallback */
+  color: #FFFFFF;
+}
+
+.tagText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 8px;
+  line-height: 1;
+}
+
+/* Highlighted state */
+.highlighted .locationTag {
+  background: rgba(255, 200, 61, 0.24); /* #FFC83D3D */
+  color: #FFC83D;
+}
+
+.highlighted .title {
+  color: #FFC83D;
+}
+
+.content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+}
+
+.detailsRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.8); /* #FFFFFFCC */
+}
+
+.detailIcon {
+  flex-shrink: 0;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cardLink:hover .card {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease;
+}
+
+/* Responsive Scaling */
+@media (max-width: 1440px) {
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .sectionTitle {
+    text-align: center;
+  }
+}

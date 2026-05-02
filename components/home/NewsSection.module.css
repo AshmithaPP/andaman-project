@@ -1,0 +1,152 @@
+/* ============================================================
+   NewsSection.module.css
+   Design spec @ 1440px viewport:
+   section content = 1360px wide, left: 40px (40px each side)
+   Above 1440px → content grows, no side gaps
+   ============================================================ */
+
+/* ── Outer section (full-width strip) ─────────────────────── */
+.newsSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ── Inner container (max 1360px at ≤1440px) ──────────────── */
+.container {
+  width: 100%;
+  max-width: 1360px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ── Left content block: 303×232 ──────────────────────────── */
+.leftContent {
+  width: 303px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Title: Poppins 500 32px / 48px — #1B1B1B */
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  color: #1B1B1B;
+  margin: 0;
+}
+
+/* Description: Poppins 400 16px / 24px — #595959 */
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #595959;
+  margin: 0;
+}
+
+/* Explore More button override (uses Button.tsx primary variant) */
+.exploreButton {
+  width: fit-content;
+}
+
+/* ── Right content block: 1014px wide, 371px tall ─────────── */
+.rightContent {
+  flex: 1;
+  min-width: 0;
+  height: 371px;
+  display: flex;
+  gap: 24px;
+}
+
+/* ── Advertisement (3rd) card ─────────────────────────────── */
+.adCard {
+  flex: 1;
+  min-width: 0;
+  height: 371px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background-color: #D9D9D9;
+}
+
+.adImage {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+
+/* ≤1440px: add 40px side padding so content = 1360px */
+@media (max-width: 1440px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* >1440px to 1880px: let container grow to fill space (cards get wider) */
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1880px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* ≤1024px: stack vertically */
+@media (max-width: 1024px) {
+  .newsSection {
+    padding: 40px 0;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 100%;
+  }
+
+  .leftContent {
+    width: 100%;
+  }
+
+  .rightContent {
+    width: 100%;
+    height: auto;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 24px;
+  }
+
+  .adCard {
+    flex-shrink: 0;
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 24px;
+    line-height: 36px;
+  }
+}

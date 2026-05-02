@@ -1,0 +1,31 @@
+.backButton {
+  width: 91px;
+  height: 52px;
+  border-radius: 16px;
+  border: 1px solid #E3E3E3;
+  background: #ffffff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Adjusted gap to fit within 91px width with text */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.backButton:hover {
+  background: #f8f8f8;
+  border-color: #d1d1d1;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}

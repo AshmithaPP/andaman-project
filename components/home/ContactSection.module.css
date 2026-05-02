@@ -1,0 +1,466 @@
+/* ══════════════════════════════════════
+   OUTER SECTION — same pattern as ExploreServices
+   No side padding — edges flush with other sections
+══════════════════════════════════════ */
+.sectionWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* max-width: 1660px matches ExploreServices */
+.container {
+  width: 100%;
+  max-width: 1660px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  position: relative;
+  height: 718px;
+  overflow: visible;
+}
+
+/* ══════════════════════════════════════
+   LEFT — WHITE CARD
+   width: 923  height: 718
+   border-top-left-radius: 16px  border-bottom-left-radius: 16px
+   border: 1px solid #E0E0E0  (no right border)
+   flex: 923 out of (923+473)=1396
+══════════════════════════════════════ */
+.card {
+  flex: 923;
+  min-width: 0;
+  height: 680px;
+  background: #fdfdfd;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border: 1px solid #e0e0e0;
+  border-right: none;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* ══════════════════════════════════════
+   INNER FORM CONTENT
+   width: 545  height: 598
+   top: 4926-4866 = 60px from card top
+   left: 100px (page) - 40px (card page left) = 60px from card left
+   gap: 40px
+══════════════════════════════════════ */
+.formInner {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 545px;
+  height: 598px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ══════════════════════════════════════
+   HEADING BLOCK — gap inside is from formInner's gap
+══════════════════════════════════════ */
+.headingBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Get in Touch with Us
+   width: 491  height: 72
+   Poppins 600  48px  line-height: 100%  letter-spacing: 0%
+   color: #1B1B1B
+*/
+.headingTitle {
+  width: 491px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0em;
+  color: #1b1b1b;
+  margin: 0;
+}
+
+/* Desc text
+   width: 545  height: 48
+   Poppins 400  14px  line-height: 24px  letter-spacing: 1%
+   color: #595959
+*/
+.headingDesc {
+  width: 545px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #595959;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════
+   FIELDS STACK
+   Each field: width:545  height:50  gap between fields: 16px
+══════════════════════════════════════ */
+.fieldsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 545px;
+}
+
+/* ══════════════════════════════════════
+   SUBMIT BUTTON
+   width:107  height:50  border-radius:8px
+   padding: 12px 24px  background:#FFC83D
+   text: Poppins 500  16px  line-height:100%  uppercase  color:#1B1B1B
+══════════════════════════════════════ */
+.btnSubmit {
+  width: 107px;
+  height: 50px;
+  border-radius: 8px;
+  padding: 12px 24px;
+  background: #ffc83d;
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0em;
+  color: #1b1b1b;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+  flex-shrink: 0;
+}
+
+.btnSubmit:hover {
+  background: #f0b800;
+  box-shadow: 0 4px 16px rgba(255, 200, 61, 0.5);
+}
+
+.btnSubmit:active {
+  transform: scale(0.97);
+}
+
+.btnSubmit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+/* ══════════════════════════════════════
+   CONTACT INFO ROW
+   width:544  height:40  gap:42
+══════════════════════════════════════ */
+.contactRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 544px;
+  height: 40px;
+  gap: 42px;
+}
+
+/* Each item: gap: 15px  width:135  height:40 */
+.contactItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  height: 40px;
+}
+
+/* Icon: width:28  height:28 */
+.contactIcon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.contactText {
+  display: flex;
+  flex-direction: column;
+}
+
+/* PHONE / FAX / EMAIL label + value
+   Poppins 400  14px  line-height:20px  letter-spacing:2%  color:#1B1B1B
+*/
+.cLabel {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #1b1b1b;
+  text-transform: uppercase;
+}
+
+.cValue {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  color: #1b1b1b;
+  text-decoration: none;
+}
+
+a.cValue:hover {
+  color: #ffc83d;
+  transition: color 0.15s;
+}
+
+/* ══════════════════════════════════════
+   SUCCESS BANNER
+══════════════════════════════════════ */
+.successBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #166534;
+  width: 545px;
+  animation: fadeIn 0.3s ease;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ══════════════════════════════════════
+   RIGHT — YELLOW CURVE PANEL
+   flex: 473 out of 1396 total
+   height: 718px
+   Must be position:relative for Next.js Image fill to work
+   Must stay in flex flow so card doesn't expand to cover it
+══════════════════════════════════════ */
+.yellowCurve {
+  flex: 473;
+  flex-shrink: 0;
+  min-width: 0;
+  height: 680px;
+  position: relative;
+  z-index: 1;
+  margin-left: -15px; /* ← small pull to cover the transparent left sliver */
+}
+/* curve.png fills the panel; object-fit:contain keeps the exact curve shape */
+.curveImg {
+  object-fit: fill;
+  object-position: center;
+}
+
+/* ══════════════════════════════════════
+   IMAGE CONTAINER
+   Spec page coords: top:4926  left:732  width:608  height:598
+   Section page coords: top:4866  left:40
+   → Relative to container: top: 60px, left: 692px
+   692 / (923+473) = 49.57% → use 49.6%
+   width:608  height:598  border-radius:24px  background:#D9D9D9
+══════════════════════════════════════ */
+.imageContainer {
+  position: absolute;
+  left: 49.6%;
+  top: 60px;
+  width: 608px;
+  height: 598px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #d9d9d9;
+  z-index: 3;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+}
+
+.contactImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — 1400px
+══════════════════════════════════════ */
+@media (max-width: 1400px) {
+  .sectionWrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .imageContainer {
+    width: min(608px, 43%);
+    height: auto;
+    aspect-ratio: 608 / 598;
+  }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — 1200px
+══════════════════════════════════════ */
+@media (max-width: 1200px) {
+  .imageContainer {
+    width: 40%;
+    left: 52%;
+  }
+
+  .formInner {
+    left: 40px;
+    width: auto;
+    right: 24px;
+  }
+
+  .headingTitle {
+    width: 100%;
+    font-size: 36px;
+  }
+
+  .headingDesc {
+    width: 100%;
+  }
+
+  .fieldsStack {
+    width: 100%;
+  }
+
+  .contactRow {
+    width: 100%;
+  }
+
+  .successBanner {
+    width: 100%;
+  }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — MOBILE (≤ 991px)
+   Desktop layout is completely untouched above this point.
+══════════════════════════════════════ */
+@media (max-width: 991px) {
+  .sectionWrapper {
+    padding: 40px 0;
+  }
+
+  /* Stack vertically, auto height */
+  .container {
+    flex-direction: column;
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+  }
+
+  /* Card becomes full-width block, no absolute children */
+  .card {
+    flex: none;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid #e0e0e0;
+  }
+
+  /* formInner: exit absolute positioning, become a normal flow column */
+  .formInner {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
+    padding: 32px 20px 40px;
+    gap: 24px;
+    box-sizing: border-box;
+  }
+
+  .headingTitle {
+    width: 100%;
+    font-size: 28px;
+    line-height: 120%;
+  }
+
+  .headingDesc {
+    width: 100%;
+  }
+
+  .fieldsStack {
+    width: 100%;
+  }
+
+  .successBanner {
+    width: 100%;
+  }
+
+  /* Full-width submit button on mobile */
+  .btnSubmit {
+    width: 100%;
+  }
+
+  /* Stack contact items vertically */
+  .contactRow {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .contactItem {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Hide decorative yellow curve on mobile */
+  .yellowCurve {
+    display: none;
+  }
+
+  /* Image becomes a normal block below the card */
+  .imageContainer {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: 240px;
+    margin-top: 20px;
+    border-radius: 16px;
+    box-shadow: none;
+  }
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE — SMALL MOBILE (≤ 576px)
+══════════════════════════════════════ */
+@media (max-width: 576px) {
+  .headingTitle {
+    font-size: 24px;
+  }
+
+  .formInner {
+    padding: 28px 16px 36px;
+    gap: 20px;
+  }
+
+  .imageContainer {
+    height: 200px;
+  }
+}

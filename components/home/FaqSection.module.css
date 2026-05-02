@@ -1,0 +1,163 @@
+/* ── FAQ Section ── */
+
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1660px;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 42px;
+  color: #1B1B1B;
+  margin: 0 0 30px 0;
+}
+
+/* ── Cards row ── */
+.cardsRow {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* ── Active / first card ──
+   width: 437  out of total 437 + 4×207 = 1265 ≈ flex ratio 437
+   height: 351, padding: 20px all sides
+*/
+.activeCard {
+  flex: 437;
+  min-width: 0;
+  min-height: 351px;
+  border-radius: 8px;
+  border: 1px solid #F9B200;
+  background: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+.activeNumber {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 84px;
+  color: #FFC83D;
+  margin: 0;
+}
+
+.activeQuestion {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: #000000;
+  margin: 0;
+}
+
+.activeAnswer {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: #595959;
+  margin: 0;
+}
+
+/* ── Inactive cards ──
+   width: 207, height: 351
+   padding-top: 141px, padding-right: 20px, padding-bottom: 20px, padding-left: 20px
+   (the 141px top padding pushes number+text to the bottom)
+*/
+.inactiveCard {
+  flex: 207;
+  min-width: 0;
+  min-height: 351px;
+  border-radius: 8px;
+  border: 1px solid #F0F0F0;
+  background: #F7F7F7;
+  padding: 141px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.inactiveCard:hover {
+  border-color: #F9B200;
+  background: #ffffff;
+}
+
+.inactiveNumber {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 84px;
+  color: #818181;
+  margin: 0;
+}
+
+.inactiveQuestion {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #1B1B1B;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+
+/* 1400px – 1880px: no horizontal padding on section, cards fill width via flex */
+@media (max-width: 1400px) {
+  .section {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .inactiveCard {
+    padding-top: 80px;
+  }
+  .inactiveNumber,
+  .activeNumber {
+    font-size: 40px;
+    line-height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardsRow {
+    flex-wrap: wrap;
+  }
+  .activeCard {
+    flex: 1 1 100%;
+  }
+  .inactiveCard {
+    flex: 1 1 calc(50% - 8px);
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inactiveCard {
+    flex: 1 1 100%;
+  }
+  .section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}

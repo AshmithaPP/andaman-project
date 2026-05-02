@@ -1,0 +1,133 @@
+.galleryContainer {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.largeImageWrapper {
+  flex: 2;
+  min-width: 402px;
+  height: 428px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.largeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.smallGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  flex: 2;
+  height: 428px;
+}
+
+.smallImageWrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.smallImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.morePhotos {
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+@media (min-width: 1600px) {
+  .largeImageWrapper,
+  .smallGrid {
+    height: 500px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .largeImageWrapper {
+    min-width: 300px;
+    height: 350px;
+  }
+
+  .smallGrid {
+    height: 350px;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 991px) {
+  .galleryContainer {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .largeImageWrapper {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    aspect-ratio: 402 / 428;
+    border-radius: 8px;
+  }
+
+  .smallGrid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    width: 100%;
+    height: auto;
+    gap: 12px;
+  }
+
+  .smallImageWrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 195 / 202;
+  }
+
+  .morePhotos {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .galleryContainer {
+    gap: 10px;
+  }
+
+  .smallGrid {
+    gap: 10px;
+  }
+
+  .morePhotos {
+    font-size: 14px;
+  }
+}

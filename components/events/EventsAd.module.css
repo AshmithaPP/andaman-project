@@ -1,0 +1,54 @@
+.section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: #ffffff;
+  padding-bottom: 20px;
+  margin-top: -15px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.adWrapper {
+  width: 1440px;
+  height: 440px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.adImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Scaling for larger screens */
+@media (min-width: 1441px) {
+  .adWrapper {
+    width: 100%; /* Scale to fit the container's max-width if needed */
+    height: auto;
+    aspect-ratio: 1361 / 410;
+  }
+}
+
+/* Responsive Scaling for mobile */
+@media (max-width: 1361px) {
+  .adWrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1361 / 410;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
