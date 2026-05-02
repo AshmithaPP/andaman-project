@@ -24,7 +24,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
           <div className={styles.gallery}>
             <div className={styles.largeImage}>
               <Image 
-                src="/images/events/eventdetails1.png" 
+                src="/images/Events/eventdetails1.png" 
                 alt="Event Image 1" 
                 width={437} 
                 height={428} 
@@ -34,7 +34,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
             <div className={styles.smallImages}>
               <div className={styles.smallImageItem}>
                 <Image 
-                  src="/images/events/eventdetails2.png" 
+                  src="/images/Events/eventdetails2.png" 
                   alt="Event Image 2" 
                   width={438} 
                   height={202} 
@@ -43,7 +43,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
               </div>
               <div className={styles.smallImageItem}>
                 <Image 
-                  src="/images/events/eventdetails3.png" 
+                  src="/images/Events/eventdetails3.png" 
                   alt="Event Image 3" 
                   width={438} 
                   height={202} 

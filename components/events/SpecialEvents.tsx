@@ -86,7 +86,7 @@ const SpecialEventCard: React.FC<SpecialEventCardProps> = ({
 const SpecialEvents: React.FC = () => {
   const specialEvents = [
     {
-      image: '/images/events/events1.jpg',
+      image: '/images/Events/events1.jpg',
       title: 'Sunburn Dj Event',
       location: 'Port Blair',
       entry: 'Entry - Free',
@@ -95,7 +95,7 @@ const SpecialEvents: React.FC = () => {
       isHighlighted: true,
     },
     {
-      image: '/images/events/specialevent2.jpg',
+      image: '/images/Events/specialevent2.jpg',
       title: 'Beach Party',
       location: 'Havelock Island',
       entry: 'Entry - Free',
@@ -103,7 +103,7 @@ const SpecialEvents: React.FC = () => {
       time: '08:00 PM',
     },
     {
-      image: '/images/events/specialevent3.jpg',
+      image: '/images/Events/specialevent3.jpg',
       title: 'Night Music Festival',
       location: 'Port Blair',
       entry: 'Entry - Paid',
@@ -111,7 +111,7 @@ const SpecialEvents: React.FC = () => {
       time: '07:00 PM',
     },
     {
-      image: '/images/events/specialevent4.jpg',
+      image: '/images/Events/specialevent4.jpg',
       title: 'Cultural Dance Night',
       location: 'Neil Island',
       entry: 'Entry - Free',
@@ -119,7 +119,7 @@ const SpecialEvents: React.FC = () => {
       time: '06:00 PM',
     },
     {
-      image: '/images/events/specialevent5.jpg',
+      image: '/images/Events/specialevent5.jpg',
       title: 'Food & Wine Fest',
       location: 'Port Blair',
       entry: 'Entry - Free',
@@ -127,7 +127,7 @@ const SpecialEvents: React.FC = () => {
       time: '05:00 PM',
     },
     {
-      image: '/images/events/specialevent6.jpg',
+      image: '/images/Events/specialevent6.jpg',
       title: 'Live Band Performance',
       location: 'Havelock Island',
       entry: 'Entry - Paid',

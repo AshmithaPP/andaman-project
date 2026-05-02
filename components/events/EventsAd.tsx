@@ -8,7 +8,7 @@ const EventsAd: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.adWrapper}>
           <Image
-            src="/images/events/eventad1.png"
+            src="/images/Events/eventad1.png"
             alt="Event Advertisement"
             fill
             className={styles.adImage}

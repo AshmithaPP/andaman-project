@@ -26,7 +26,8 @@
   left: 8px;
   width: 46px;
   height: 22px;
-  background: rgba(109, 78, 0, 0.4); /* #6D4E0066 */
+  background: rgba(109, 78, 0, 0.4);
+  /* #6D4E0066 */
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -54,7 +55,8 @@
   right: 8px;
   width: 22.33px;
   height: 22px;
-  background: rgba(109, 78, 0, 0.42); /* #6D4E006B */
+  background: rgba(109, 78, 0, 0.42);
+  /* #6D4E006B */
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -126,17 +128,22 @@
     font-size: 20px;
     line-height: 30px;
   }
-  .location, .host {
+
+  .location,
+  .host {
     font-size: 14px;
     line-height: 20px;
   }
+
   .ratingTag {
     width: 56px;
     height: 28px;
   }
+
   .ratingText {
     font-size: 14px;
   }
+
   .likeBtn {
     width: 30px;
     height: 30px;
@@ -156,7 +163,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 50; /* Ensure it stays on top */
+  z-index: 50;
+  /* Ensure it stays on top */
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(0, 109, 119, 0.2);
@@ -179,19 +187,21 @@
 }
 
 .prevBtn {
-  left: 8px; /* Moved inside to prevent clipping */
+  left: 8px;
+  /* Moved inside to prevent clipping */
 }
 
 .nextBtn {
-  right: 8px; /* Moved inside to prevent clipping */
+  right: 8px;
+  /* Moved inside to prevent clipping */
 }
 
 @media (max-width: 650px) {
   .navBtn {
-    display: flex; /* Restored arrows */
-    background: rgba(255, 255, 255, 0.4); /* Glass base */
-    backdrop-filter: blur(12px) saturate(180%); /* Strong frost effect */
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    display: flex;
+    /* Restored arrows */
+    /* Glass base */
+    /* Strong frost effect */
     border: 1px solid rgba(255, 255, 255, 0.3);
     width: 36px;
     height: 36px;
