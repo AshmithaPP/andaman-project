@@ -1,158 +1,120 @@
 .section {
   width: 100%;
   background: #ffffff;
-  padding-bottom: 80px;
   display: flex;
   justify-content: center;
+  padding-bottom: 60px;
+  padding-top: 30px;
+
 }
 
 .container {
   width: 100%;
   max-width: 1880px;
   padding: 0 40px;
-}
-
-.sectionTitle {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 48px;
-  color: #006D77;
-  margin: 0 0 24px 0;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-}
-
-.card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 449 / 209;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.imageWrapper {
-  width: 100%;
-  height: 100%;
   position: relative;
 }
 
-.eventImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-}
-
-.locationTag {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  height: 20px;
-  border-radius: 42px;
-  padding: 4px 8px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(255, 255, 255, 0.2); /* Fallback */
-  color: #FFFFFF;
-}
-
-.tagText {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 8px;
-  line-height: 1;
-}
-
-/* Highlighted state */
-.highlighted .locationTag {
-  background: rgba(255, 200, 61, 0.24); /* #FFC83D3D */
-  color: #FFC83D;
-}
-
-.highlighted .title {
-  color: #FFC83D;
-}
-
-.content {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: calc(100% - 40px);
+.titleWrapper {
+  margin-bottom: 12px;
 }
 
 .title {
   font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1;
-  color: #FFFFFF;
-  margin: 0 0 8px 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+  margin: 0;
 }
 
-.detailsRow {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 24px;
+  row-gap: 40px;
+  margin-bottom: 20px;
 }
 
-.detailItem {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 1;
-  color: rgba(255, 255, 255, 0.8); /* #FFFFFFCC */
-}
-
-.detailIcon {
-  flex-shrink: 0;
-}
-
-.cardLink {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.cardLink:hover .card {
-  transform: translateY(-4px);
-  transition: transform 0.2s ease;
-}
-
-/* Responsive Scaling */
-@media (max-width: 1440px) {
-  .sectionTitle {
-    font-size: 28px;
+/* Scaling for larger screens (above 1440px) */
+@media (min-width: 1441px) {
+  .title {
+    font-size: 32px;
+    line-height: 48px;
   }
 }
 
-@media (max-width: 1200px) {
+/* Responsive adjustments */
+@media (max-width: 1600px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
   }
-  .sectionTitle {
-    text-align: center;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+}
+
+.cardWrapper {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+@media (max-width: 650px) {
+  .section {
+    padding-bottom: 20px;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .titleWrapper {
+    padding: 0 24px;
+  }
+
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    padding: 10px 4%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cardWrapper {
+    flex: 0 0 92%;
+    scroll-snap-align: center;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    transform: scale(0.95);
+    opacity: 0.7;
+    padding: 0 8px;
+  }
+
+  .activeCard {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Removed container padding to maintain card width */
 }

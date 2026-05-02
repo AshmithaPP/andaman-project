@@ -17,12 +17,13 @@ const EventsPage = () => {
   return (
     <main>
       <EventsHero />
-      <LocalEvents />
-      <EventsAd />
       <SpecialEvents />
+      <EventsAd />
       <ExoticEvents />
       <EventGallery />
+        <LocalEvents />
       <SportsEvents />
+
     </main>
   );
 };

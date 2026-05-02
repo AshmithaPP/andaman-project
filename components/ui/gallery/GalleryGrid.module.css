@@ -54,6 +54,12 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.overlay:hover {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .morePhotos {

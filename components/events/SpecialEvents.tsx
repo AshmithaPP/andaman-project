@@ -1,87 +1,8 @@
+'use client';
+
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from './SpecialEvents.module.css';
-
-interface SpecialEventCardProps {
-  image: string;
-  title: string;
-  location: string;
-  entry: string;
-  date: string;
-  time: string;
-  isHighlighted?: boolean;
-}
-
-const SpecialEventCard: React.FC<SpecialEventCardProps> = ({
-  image,
-  title,
-  location,
-  entry,
-  date,
-  time,
-  isHighlighted = false,
-}) => {
-  return (
-    <Link href="/events/sunburn-andaman-live" className={styles.cardLink}>
-      <div className={`${styles.card} ${isHighlighted ? styles.highlighted : ''}`}>
-        <div className={styles.imageWrapper}>
-          <Image src={image} alt={title} width={449} height={209} className={styles.eventImage} />
-          <div className={styles.overlay}></div>
-          
-          {/* Location Tag */}
-          <div className={styles.locationTag}>
-            <Image
-              src="/icons/events/location.png"
-              alt="Location"
-              width={9}
-              height={12}
-              className={styles.tagIcon}
-            />
-            <span className={styles.tagText}>{location}</span>
-          </div>
-
-          {/* Content */}
-          <div className={styles.content}>
-            <h3 className={styles.title}>{title}</h3>
-            <div className={styles.detailsRow}>
-              <div className={styles.detailItem}>
-                <Image
-                  src="/icons/events/gift.png"
-                  alt="Entry"
-                  width={13}
-                  height={10}
-                  className={styles.detailIcon}
-                />
-                <span>{entry}</span>
-              </div>
-              <div className={styles.detailItem}>
-                <Image
-                  src="/icons/events/date.png"
-                  alt="Date"
-                  width={13}
-                  height={13}
-                  className={styles.detailIcon}
-                />
-                <span>{date}</span>
-              </div>
-              <div className={styles.detailItem}>
-                <Image
-                  src="/icons/events/time.png"
-                  alt="Time"
-                  width={13}
-                  height={13}
-                  className={styles.detailIcon}
-                />
-                <span>{time}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
-};
+import styles from './SpecialEvents.module.css'; // Reusing styles if they are identical, or I'll copy them to SpecialEvents.module.css
+import EventCard from '@/components/events/EventCard';
 
 const SpecialEvents: React.FC = () => {
   const specialEvents = [
@@ -89,61 +10,110 @@ const SpecialEvents: React.FC = () => {
       image: '/images/Events/events1.jpg',
       title: 'Sunburn Dj Event',
       location: 'Port Blair',
-      entry: 'Entry - Free',
-      date: '16/03/2026',
-      time: '09:00 PM',
-      isHighlighted: true,
+      host: 'Anish',
+      rating: 4.8,
     },
     {
       image: '/images/Events/specialevent2.jpg',
       title: 'Beach Party',
       location: 'Havelock Island',
-      entry: 'Entry - Free',
-      date: '17/03/2026',
-      time: '08:00 PM',
+      host: 'Priya',
+      rating: 4.6,
     },
     {
       image: '/images/Events/specialevent3.jpg',
       title: 'Night Music Festival',
       location: 'Port Blair',
-      entry: 'Entry - Paid',
-      date: '18/03/2026',
-      time: '07:00 PM',
+      host: 'Rahul',
+      rating: 4.5,
     },
     {
       image: '/images/Events/specialevent4.jpg',
       title: 'Cultural Dance Night',
       location: 'Neil Island',
-      entry: 'Entry - Free',
-      date: '19/03/2026',
-      time: '06:00 PM',
+      host: 'Sita',
+      rating: 4.7,
     },
     {
       image: '/images/Events/specialevent5.jpg',
       title: 'Food & Wine Fest',
       location: 'Port Blair',
-      entry: 'Entry - Free',
-      date: '20/03/2026',
-      time: '05:00 PM',
+      host: 'Vikram',
+      rating: 4.4,
     },
     {
       image: '/images/Events/specialevent6.jpg',
       title: 'Live Band Performance',
       location: 'Havelock Island',
-      entry: 'Entry - Paid',
-      date: '21/03/2026',
-      time: '09:30 PM',
+      host: 'Karan',
+      rating: 4.9,
     },
   ];
+
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, offsetWidth } = scrollRef.current;
+    const index = Math.round(scrollLeft / (offsetWidth * 0.92));
+    if (index !== activeIndex) setActiveIndex(index);
+  };
+
+  const scrollGrid = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = scrollRef.current.offsetWidth * 0.92;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  React.useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer || typeof window === 'undefined' || window.innerWidth > 650) return;
+
+    const interval = setInterval(() => {
+      const { scrollLeft, offsetWidth, scrollWidth } = scrollContainer;
+      const maxScroll = scrollWidth - offsetWidth;
+      
+      if (scrollLeft >= maxScroll - 10) {
+        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        scrollContainer.scrollBy({ left: offsetWidth * 0.92, behavior: 'smooth' });
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex]);
 
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Special Events</h2>
-        <div className={styles.grid}>
-          {specialEvents.map((event, index) => (
-            <SpecialEventCard key={index} {...event} />
-          ))}
+        <div className={styles.titleWrapper}>
+          <h2 className={styles.title}>Special Events</h2>
+        </div>
+        
+        <div className={styles.carouselContainer}>
+          <div 
+            className={styles.grid} 
+            ref={scrollRef}
+            onScroll={handleScroll}
+          >
+            {specialEvents.map((event, index) => (
+              <div 
+                key={index} 
+                className={`${styles.cardWrapper} ${activeIndex === index ? styles.activeCard : ''}`}
+              >
+                <EventCard 
+                  {...event} 
+                  onPrev={() => scrollGrid('left')}
+                  onNext={() => scrollGrid('right')}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

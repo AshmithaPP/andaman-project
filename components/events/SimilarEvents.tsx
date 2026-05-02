@@ -11,13 +11,13 @@ const SimilarEvents: React.FC = () => {
   const handleScroll = () => {
     if (!scrollRef.current) return;
     const { scrollLeft, offsetWidth } = scrollRef.current;
-    const index = Math.round(scrollLeft / (offsetWidth * 0.85));
+    const index = Math.round(scrollLeft / (offsetWidth * 0.92));
     if (index !== activeIndex) setActiveIndex(index);
   };
 
   const scrollGrid = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = scrollRef.current.offsetWidth * 0.85;
+      const scrollAmount = scrollRef.current.offsetWidth * 0.92;
       scrollRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'

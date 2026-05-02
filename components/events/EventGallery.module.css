@@ -12,18 +12,39 @@
   padding: 0 40px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
   gap: 24px;
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 0;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .imageWrapper {
-  width: 100%;
+  flex: 0 0 calc((100% - (3 * 24px)) / 4); /* 4 images per view on desktop */
   aspect-ratio: 322 / 321;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  background: #D9D9D9;
+  background: #f5f5f5;
+  transition: transform 0.3s ease;
+}
+
+.imageWrapper:hover {
+  transform: scale(1.02);
 }
 
 .image {
@@ -32,26 +53,66 @@
   object-fit: cover;
 }
 
-/* Maintain fixed layout at 1440px to match exact design */
-@media (max-width: 1440px) {
-  .grid {
-    grid-template-columns: repeat(4, 322px);
-    justify-content: center;
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #006D77;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navBtn:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.prevBtn {
+  left: -22px;
+}
+
+.nextBtn {
+  right: -22px;
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+  .imageWrapper {
+    flex: 0 0 calc((100% - (2 * 24px)) / 3); /* 3 images */
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 1350px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 900px) {
+  .imageWrapper {
+    flex: 0 0 calc((100% - 24px) / 2); /* 2 images */
   }
+  .prevBtn { left: 5px; }
+  .nextBtn { right: 5px; }
 }
 
 @media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
   .container {
     padding: 0 20px;
+  }
+  .carousel {
+    gap: 16px;
+  }
+  .imageWrapper {
+    flex: 0 0 85%; /* Peek layout */
+  }
+  .navBtn {
+    display: none; /* Hide arrows on mobile for swipe */
   }
 }

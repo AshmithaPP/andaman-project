@@ -1,12 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './GalleryGrid.module.css';
 
 interface GalleryGridProps {
   images: string[];
+  galleryHref?: string;
 }
 
-const GalleryGrid: React.FC<GalleryGridProps> = ({ images }) => {
+const GalleryGrid: React.FC<GalleryGridProps> = ({ images, galleryHref = "/resort/gallery" }) => {
   // We expect at least 5 images for the full layout
   const largeImage = images[0];
   const smallImages = images.slice(1, 5);
@@ -35,9 +37,9 @@ const GalleryGrid: React.FC<GalleryGridProps> = ({ images }) => {
               style={{ objectFit: 'cover' }}
             />
             {index === 3 && (
-              <div className={styles.overlay}>
+              <Link href={galleryHref} className={styles.overlay}>
                 <span className={styles.morePhotos}>+More Photos</span>
-              </div>
+              </Link>
             )}
           </div>
         ))}

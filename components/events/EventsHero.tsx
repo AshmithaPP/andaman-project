@@ -1,36 +1,68 @@
-import React from 'react';
-import SearchBox from '@/components/ui/inputs/SearchBox';
+"use client";
+
+import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import styles from './EventsHero.module.css';
 
 const EventsHero: React.FC = () => {
+  const images = [
+    "/images/Events/eventgallery1.png",
+    "/images/Events/eventgallery2.png",
+    "/images/Events/eventgallery3.png",
+    "/images/Events/eventgallery4.png",
+    "/images/Events/eventad1.png",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const autoSlide = true;
+  const autoSlideInterval = 5000;
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  }, [images.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  useEffect(() => {
+    if (!autoSlide) return;
+    const interval = setInterval(nextSlide, autoSlideInterval);
+    return () => clearInterval(interval);
+  }, [autoSlide, autoSlideInterval, nextSlide]);
+
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-
-        {/* Left Text Block */}
-        <div className={styles.leftBlock}>
-          <div className={styles.textGroup}>
-            <p className={styles.exploreText}>Explore &amp; Enjoy</p>
-            <div className={styles.titleRow}>
-              <span className={styles.eventsText}>Events</span>
-              <span className={styles.acrossText}>across Andaman</span>
+        <div className={styles.carousel}>
+          {images.map((image, index) => (
+            <div 
+              key={index} 
+              className={`${styles.slide} ${index === currentIndex ? styles.active : ''}`}
+            >
+              <Image
+                src={image}
+                alt={`Events Hero Slide ${index + 1}`}
+                fill
+                priority={index === 0}
+                className={styles.image}
+                sizes="(max-width: 1440px) 100vw, 1360px"
+              />
             </div>
-          </div>
+          ))}
         </div>
 
-        {/* Search Box Wrapper */}
-        <div className={styles.searchBoxWrapper}>
-          <SearchBox
-            label="Location Details"
-            placeholder="Enter Location Details to Enjoy"
-          />
+        {/* Navigation Dots */}
+        <div className={styles.dotsContainer}>
+          {images.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
-
-        {/* Right Carousel Placeholder */}
-        <div className={styles.carouselBlock}>
-          <span className={styles.carouselLabel}>Carousel Space</span>
-        </div>
-
       </div>
     </section>
   );

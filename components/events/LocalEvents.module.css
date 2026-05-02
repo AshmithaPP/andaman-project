@@ -56,40 +56,84 @@
   }
 }
 
-.pagination {
+.paginationWrapper {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 8px;
-  margin-top: 0;
-  margin-bottom: 8px;
+  gap: 16px;
+  margin-top: 32px;
   width: 100%;
 }
 
-.page {
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pageNumber {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #333333;
   font-family: 'Poppins', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 14px;
-  line-height: 21px;
-  color: #000000;
   cursor: pointer;
-  padding: 0 2px;
-  min-width: 12px;
-  text-align: center;
+  transition: all 0.2s ease;
 }
 
-.page.active {
-  color: #006D77;
+.pageNumber:hover {
+  background: #f0f0f0;
 }
 
-.ellipsis {
+.activePage {
+  background: #006D77;
+  color: #FFFFFF;
+}
+
+.activePage:hover {
+  background: #005a63;
+}
+
+.dots {
+  color: #333333;
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  color: #000000;
+  padding: 0 4px;
   letter-spacing: 1px;
 }
 
-/* Responsive adjustments */
+.pageArrow {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #E0E0E0;
+  background: #FFFFFF;
+  color: #333333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pageArrow:hover:not(:disabled) {
+  border-color: #006D77;
+  color: #006D77;
+}
+
+.pageArrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments for pagination */
 @media (max-width: 1600px) {
   .grid {
     grid-template-columns: repeat(6, 1fr);
@@ -114,13 +158,20 @@
     padding-bottom: 20px;
   }
 
+  .container {
+    padding: 0; /* Remove container padding to allow grid to span full width */
+  }
+
+  .titleWrapper {
+    padding: 0 24px;
+  }
+
   .grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 0;
-    padding: 20px 7.5%;
-    /* Centers the first and last cards */
+    padding: 10px 4%; /* Added side padding for peek effect */
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
@@ -130,32 +181,27 @@
   }
 
   .cardWrapper {
-    flex: 0 0 85%;
+    flex: 0 0 92%; /* Increased width from 85% */
     scroll-snap-align: center;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    transform: scale(0.9);
-    opacity: 0.6;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    transform: scale(0.95); /* Less dramatic scale for better neatness */
+    opacity: 0.7;
+    padding: 0 8px; /* Gap between cards */
   }
 
   .activeCard {
     transform: scale(1);
     opacity: 1;
   }
-}
 
-@media (max-width: 650px) {
-  .pagination {
-    display: flex;
+  .paginationWrapper {
     justify-content: center;
-    gap: 8px;
-    margin-top: 20px;
+    margin-top: 24px;
   }
 }
 
 @media (max-width: 500px) {
-  .container {
-    padding: 0 20px;
-  }
+  /* Removed container padding to maintain card width */
 }
 
 .carouselWrapper {
