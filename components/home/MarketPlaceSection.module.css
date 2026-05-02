@@ -7,7 +7,8 @@
 
 .container {
   width: 100%;
-  max-width: 1660px;
+  max-width: 1880px;
+  padding: 0 40px;
 }
 
 .mainLayout {
@@ -92,8 +93,8 @@
 /* Responsiveness */
 @media (max-width: 1440px) {
   .container {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

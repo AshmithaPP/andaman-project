@@ -20,7 +20,7 @@
   line-height: 48px;
   color: #1B1B1B;
   margin-bottom: 40px;
-  padding-left: 30px; 
+  padding-left: 30px;
 }
 
 .gridContainer {
@@ -54,13 +54,25 @@
 }
 
 @keyframes scrollRow1 {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 12px)); } /* 12px is half the gap */
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 12px));
+  }
+
+  /* 12px is half the gap */
 }
 
 @keyframes scrollRow2 {
-  0% { transform: translateX(calc(-50% - 12px)); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(calc(-50% - 12px));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* Pause on hover */
@@ -86,7 +98,7 @@
   left: 0;
   width: 247px;
   height: 100%;
-background: linear-gradient(270deg, rgba(0, 0, 0, 0.01) 0%, #000000 100%);
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.01) 0%, #000000 100%);
   pointer-events: none;
   z-index: 20;
 }
@@ -97,7 +109,7 @@ background: linear-gradient(270deg, rgba(0, 0, 0, 0.01) 0%, #000000 100%);
   right: 0;
   width: 246px;
   height: 100%;
-background: linear-gradient(270deg, rgba(0, 0, 0, 0.01) 0%, #000000 100%);
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0.01) 0%, #000000 100%);
   transform: rotate(180deg);
   pointer-events: none;
   z-index: 20;
@@ -105,7 +117,9 @@ background: linear-gradient(270deg, rgba(0, 0, 0, 0.01) 0%, #000000 100%);
 
 /* Responsiveness */
 @media (max-width: 1200px) {
-  .overlayLeft, .overlayRight {
+
+  .overlayLeft,
+  .overlayRight {
     width: 150px;
   }
 }
@@ -114,7 +128,7 @@ background: linear-gradient(270deg, rgba(0, 0, 0, 0.01) 0%, #000000 100%);
   .sectionWrapper {
     padding: 40px 15px;
   }
-  
+
   .heading {
     font-size: 28px;
     line-height: 38px;
@@ -122,30 +136,35 @@ background: linear-gradient(270deg, rgba(0, 0, 0, 0.01) 0%, #000000 100%);
     padding-left: 0;
     text-align: center;
   }
-  
+
   .row {
     width: auto;
-    padding: 0 0 20px 0; /* Remove left/right padding so cards go under overlays */
+    padding: 0 0 20px 0;
+    /* Remove left/right padding so cards go under overlays */
     -ms-overflow-style: none;
     scrollbar-width: none;
     display: flex;
     gap: 16px;
   }
-  
+
   .cardWrapper {
     flex-shrink: 0;
   }
 
   .row1 {
-    animation-duration: 10s; /* Much faster for mobile */
+    animation-duration: 10s;
+    /* Much faster for mobile */
   }
 
   .row2 {
-    animation-duration: 12s; /* Much faster for mobile */
+    animation-duration: 12s;
+    /* Much faster for mobile */
   }
 
-  .overlayLeft, .overlayRight {
-    width: 40px; /* Even smaller for mobile */
+  .overlayLeft,
+  .overlayRight {
+    width: 40px;
+    /* Even smaller for mobile */
     display: block;
   }
 }

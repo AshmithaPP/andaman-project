@@ -8,7 +8,8 @@
 
 .container {
   width: 100%;
-  max-width: 1660px;
+  max-width: 1880px;
+  padding: 0 40px;
 }
 
 .heading {
@@ -107,10 +108,10 @@
 }
 
 /* Responsiveness */
-@media (max-width: 1400px) {
-  .section {
-    padding-left: 40px;
-    padding-right: 40px;
+@media (max-width: 1440px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
