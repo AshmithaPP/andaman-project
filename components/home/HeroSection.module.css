@@ -2,13 +2,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 5px 0;
-  /* Add some spacing from navbar */
+  padding: 5px 40px; /* Added 40px side padding here */
 }
 
 .container {
   width: 100%;
-  max-width: 1660px;
+  max-width: 1880px;
   height: 374px;
   border-radius: 16px;
   overflow: hidden;
@@ -74,21 +73,16 @@
 }
 
 /* Responsiveness */
-@media (max-width: 1400px) {
+@media (max-width: 1440px) {
   .heroSection {
-   padding-left: 30px;
-    padding-right:30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
 @media (max-width: 1024px) {
   .container {
     height: 300px;
-  }
-
-  .heroSection {
-    padding-left: 20px;
-    padding-right: 20px;
   }
 }
 
