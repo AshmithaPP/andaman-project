@@ -84,18 +84,18 @@ const ExploreServices: React.FC = () => {
           {/* Main Grid Area */}
           <div className={styles.mainGrid}>
             <div className={styles.topRow}>
-              <div className={styles.cardHotel}><ServiceCard {...services[1]} /></div>
-              <div className={styles.cardJob}><ServiceCard {...services[2]} /></div>
-              <div className={styles.cardBuySell}><ServiceCard {...services[3]} /></div>
-              <div className={styles.cardNews}><ServiceCard {...services[4]} /></div>
+            <div className={styles.cardHotel}><ServiceCard {...services[1]} /></div>
+            <div className={styles.cardJob}><ServiceCard {...services[2]} /></div>
+            <div className={styles.cardBuySell}><ServiceCard {...services[3]} /></div>
+            <div className={styles.cardNews}><ServiceCard {...services[4]} /></div>
             </div>
             <div className={styles.bottomRow}>
-              <div className={styles.cardTravel}><ServiceCard {...services[5]} /></div>
-              <div className={styles.cardEvents}><ServiceCard {...services[6]} /></div>
-              <div className={styles.cardContact}><ServiceCard {...services[7]} /></div>
-            </div>
+            <div className={styles.cardTravel}><ServiceCard {...services[5]} /></div>
+            <div className={styles.cardEvents}><ServiceCard {...services[6]} /></div>
+            <div className={styles.cardContact}><ServiceCard {...services[7]} /></div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

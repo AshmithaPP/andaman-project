@@ -15,7 +15,7 @@ interface ServiceCardProps {
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, image, variant, href }) => {
   return (
-    <Link href={href} className={`${styles.card} ${styles[variant]}`}>
+    <Link href={href} className={`${styles.card} ${styles[variant]}`} prefetch={false}>
       <div className={styles.content}>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>

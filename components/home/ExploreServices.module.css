@@ -54,13 +54,16 @@
   display: flex;
   gap: 24px;
   width: 100%;
-  align-items: stretch; /* FIX */
+  align-items: stretch;
+  /* FIX */
 }
+
 .card {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* keeps content balanced */
+  justify-content: space-between;
+  /* keeps content balanced */
 }
 
 /* Card Ratios to maintain 'exact design' while scaling */
@@ -94,11 +97,13 @@
 }
 
 .cardContent {
-  padding: 20px; /* same for all cards */
+  padding: 20px;
+  /* same for all cards */
 }
 
 .cardImage {
-  margin-top: auto; /* pushes image to bottom cleanly */
+  margin-top: auto;
+  /* pushes image to bottom cleanly */
 }
 
 /* Responsiveness */

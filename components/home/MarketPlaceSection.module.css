@@ -84,7 +84,8 @@
 /* Above 1440px special handling */
 @media (min-width: 1440px) {
   .productGrid {
-    gap: 12px; /* Reducing gaps as per user request */
+    gap: 12px;
+    /* Reducing gaps as per user request */
   }
 }
 
@@ -112,12 +113,12 @@
     align-items: flex-start;
     gap: 32px;
   }
-  
+
   .leftColumn {
     width: 100%;
     gap: 32px;
   }
-  
+
   .contentBlock {
     gap: 24px;
     align-items: flex-start;
@@ -129,7 +130,7 @@
     line-height: 1.2;
     max-width: 100%;
   }
-  
+
   .description {
     font-size: 14px;
     line-height: 20px;
@@ -137,12 +138,14 @@
   }
 
   .postersRow {
-    display: none; /* Hide posters on mobile to focus on products carousel */
+    display: none;
+    /* Hide posters on mobile to focus on products carousel */
   }
-  
+
   .rightColumn {
     width: 100%;
-    margin-left: -40px; /* Offset parent padding to allow full-width scroll */
+    margin-left: -40px;
+    /* Offset parent padding to allow full-width scroll */
     width: calc(100% + 80px);
   }
 
@@ -150,19 +153,23 @@
     display: flex;
     overflow-x: auto;
     gap: 16px;
-    padding: 10px 40px 30px; /* Padding for scroll-snap and shadow */
+    padding: 10px 40px 30px;
+    /* Padding for scroll-snap and shadow */
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
+    /* Firefox */
   }
 
   .productGrid::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
+    /* Chrome/Safari */
   }
 
   /* Make ProductCard responsive within carousel */
-  .productGrid > div {
-    flex: 0 0 240px; /* Fixed width for carousel items */
+  .productGrid>div {
+    flex: 0 0 240px;
+    /* Fixed width for carousel items */
     scroll-snap-align: center;
   }
 }
@@ -172,8 +179,7 @@
     font-size: 24px;
   }
 
-  .productGrid > div {
+  .productGrid>div {
     flex: 0 0 220px;
   }
 }
-

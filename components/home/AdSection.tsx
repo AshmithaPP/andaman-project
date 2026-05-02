@@ -3,16 +3,18 @@ import Image from 'next/image';
 const AdSection = () => {
     return (
         <div style={{
-            width: '1880px',
+            width: '100%',
+            maxWidth: '1660px',
             height: '302px',
-            transform: 'rotate(0deg)',
-            opacity: 1,
+            position: 'relative',
+            margin: '0 auto',
+            overflow: 'hidden'
         }}>
             <Image 
                 src="/images/ad.png" 
                 alt="Beautiful Brighten Lotion" 
-                layout="fill" 
-                objectFit="cover" 
+                fill
+                style={{ objectFit: 'cover' }}
                 priority
             />
         </div>
