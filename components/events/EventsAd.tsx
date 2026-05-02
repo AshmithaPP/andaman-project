@@ -10,8 +10,7 @@ const EventsAd: React.FC = () => {
           <Image
             src="/images/events/eventad1.png"
             alt="Event Advertisement"
-            width={1361}
-            height={410}
+            fill
             className={styles.adImage}
             priority
           />

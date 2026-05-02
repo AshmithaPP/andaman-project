@@ -4,14 +4,14 @@ const AdSection = () => {
     return (
         <div style={{
             width: '100%',
-            maxWidth: '1660px',
+            maxWidth: '1860px',
             height: '302px',
             position: 'relative',
             margin: '0 auto',
             overflow: 'hidden'
         }}>
             <Image 
-                src="/images/ad.png" 
+                src="/images/Ad.png" 
                 alt="Beautiful Brighten Lotion" 
                 fill
                 style={{ objectFit: 'cover' }}

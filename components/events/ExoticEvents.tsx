@@ -15,7 +15,7 @@ const ExoticEvents: React.FC = () => {
             {/* Big Image */}
             <div className={styles.bigImageWrapper}>
               <Image 
-                src="/images/placeholder-exotic-main.png" 
+                src="/images/events/exoticevents1.jpg" 
                 alt="Exotic Event Main" 
                 width={322} 
                 height={315} 
@@ -26,16 +26,16 @@ const ExoticEvents: React.FC = () => {
             {/* Small Images Grid */}
             <div className={styles.smallImagesGrid}>
               <div className={styles.smallImageWrapper}>
-                <Image src="/images/placeholder-exotic-1.png" alt="Exotic 1" width={207} height={145} className={styles.image} />
+                <Image src="/images/events/exoticevents2.jpg" alt="Exotic 1" width={207} height={145} className={styles.image} />
               </div>
               <div className={styles.smallImageWrapper}>
-                <Image src="/images/placeholder-exotic-2.png" alt="Exotic 2" width={207} height={145} className={styles.image} />
+                <Image src="/images/events/exoticevents3.jpg" alt="Exotic 2" width={207} height={145} className={styles.image} />
               </div>
               <div className={styles.smallImageWrapper}>
-                <Image src="/images/placeholder-exotic-3.png" alt="Exotic 3" width={207} height={145} className={styles.image} />
+                <Image src="/images/events/exoticevents4.jpg" alt="Exotic 3" width={207} height={145} className={styles.image} />
               </div>
               <div className={styles.smallImageWrapper}>
-                <Image src="/images/placeholder-exotic-4.png" alt="Exotic 4" width={207} height={145} className={styles.image} />
+                <Image src="/images/events/exoticevents5.jpg" alt="Exotic 4" width={207} height={145} className={styles.image} />
               </div>
             </div>
           </div>

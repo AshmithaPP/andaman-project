@@ -5,17 +5,43 @@ import styles from './SportsEvents.module.css';
 import EventCard from './EventCard';
 
 const SportsEvents: React.FC = () => {
-  const gridRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, offsetWidth } = scrollRef.current;
+    const index = Math.round(scrollLeft / (offsetWidth * 0.85));
+    if (index !== activeIndex) setActiveIndex(index);
+  };
 
   const scrollGrid = (direction: 'left' | 'right') => {
-    if (gridRef.current) {
-      const scrollAmount = gridRef.current.clientWidth;
-      gridRef.current.scrollBy({
+    if (scrollRef.current) {
+      const scrollAmount = scrollRef.current.offsetWidth * 0.85;
+      scrollRef.current.scrollBy({
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth'
       });
     }
   };
+
+  React.useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer || typeof window === 'undefined' || window.innerWidth > 650) return;
+
+    const interval = setInterval(() => {
+      const { scrollLeft, offsetWidth, scrollWidth } = scrollContainer;
+      const maxScroll = scrollWidth - offsetWidth;
+      
+      if (scrollLeft >= maxScroll - 10) {
+        scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        scrollContainer.scrollBy({ left: offsetWidth * 0.85, behavior: 'smooth' });
+      }
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex]);
 
   const sportsEvents = [
     {
@@ -65,14 +91,22 @@ const SportsEvents: React.FC = () => {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.grid} ref={gridRef}>
+        <div 
+          className={styles.grid} 
+          ref={scrollRef}
+          onScroll={handleScroll}
+        >
           {sportsEvents.map((event, index) => (
-            <EventCard 
+            <div 
               key={index} 
-              {...event} 
-              onPrev={() => scrollGrid('left')}
-              onNext={() => scrollGrid('right')}
-            />
+              className={`${styles.cardWrapper} ${activeIndex === index ? styles.activeCard : ''}`}
+            >
+              <EventCard 
+                {...event} 
+                onPrev={() => scrollGrid('left')}
+                onNext={() => scrollGrid('right')}
+              />
+            </div>
           ))}
         </div>
       </div>

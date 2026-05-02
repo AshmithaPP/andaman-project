@@ -128,8 +128,8 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
         </div>
 
         {/* Similar Events Section */}
-        <SimilarEvents />
       </div>
+      <SimilarEvents />
     </div>
   );
 };

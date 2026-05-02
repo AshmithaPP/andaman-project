@@ -4,10 +4,10 @@ import styles from './EventGallery.module.css';
 
 const EventGallery: React.FC = () => {
   const images = [
-    '/images/placeholder-gallery-1.png',
-    '/images/placeholder-gallery-2.png',
-    '/images/placeholder-gallery-3.png',
-    '/images/placeholder-gallery-4.png',
+    '/images/events/eventgallery1.png',
+    '/images/events/eventgallery2.png',
+    '/images/events/eventgallery3.png',
+    '/images/events/eventgallery4.png',
   ];
 
   return (

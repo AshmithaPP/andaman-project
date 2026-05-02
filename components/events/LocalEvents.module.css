@@ -48,7 +48,7 @@
     font-size: 32px;
     line-height: 48px;
   }
-  
+
   /* Maintain tight gaps to maximize card width */
   .grid {
     column-gap: 24px;
@@ -113,37 +113,42 @@
   .section {
     padding-bottom: 20px;
   }
+
   .grid {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 16px;
-    padding-bottom: 20px;
-    margin-right: -20px; /* Allow cards to go to the edge */
-    padding-right: 20px;
+    gap: 0;
+    padding: 20px 7.5%;
+    /* Centers the first and last cards */
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Hide scrollbar for cleaner look */
+    scrollbar-width: none;
   }
+
   .grid::-webkit-scrollbar {
     display: none;
   }
-  .grid > * {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
+
+  .cardWrapper {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+
+  .activeCard {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
-@media (max-width: 1000px) {
-  .header {
-    justify-content: center;
-  }
-  .titleWrapper {
-    text-align: center;
-  }
+@media (max-width: 650px) {
   .pagination {
+    display: flex;
     justify-content: center;
-    margin-bottom:25px;
-    margin-top: -10px;
+    gap: 8px;
+    margin-top: 20px;
   }
 }
 
@@ -181,10 +186,4 @@
 
 .nextBtn {
   right: -10px;
-}
-
-@media (max-width: 650px) {
-  .navBtn {
-    display: flex;
-  }
 }
