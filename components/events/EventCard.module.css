@@ -49,21 +49,13 @@
   color: #FFFFFF;
 }
 
-.likeBtn {
+.likeDislikeContainer {
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 22.33px;
-  height: 22px;
-  background: rgba(109, 78, 0, 0.42);
-  /* #6D4E006B */
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  padding: 5px 4.5px;
+  transform: scale(0.7);
+  transform-origin: top right;
+  z-index: 10;
 }
 
 .info {
@@ -142,11 +134,6 @@
 
   .ratingText {
     font-size: 14px;
-  }
-
-  .likeBtn {
-    width: 30px;
-    height: 30px;
   }
 }
 

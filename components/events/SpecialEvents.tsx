@@ -12,6 +12,8 @@ const SpecialEvents: React.FC = () => {
       location: 'Port Blair',
       host: 'Anish',
       rating: 4.8,
+      likes: 245,
+      dislikes: 12,
     },
     {
       image: '/images/Events/specialevent2.jpg',
@@ -19,6 +21,8 @@ const SpecialEvents: React.FC = () => {
       location: 'Havelock Island',
       host: 'Priya',
       rating: 4.6,
+      likes: 189,
+      dislikes: 8,
     },
     {
       image: '/images/Events/specialevent3.jpg',
@@ -26,6 +30,8 @@ const SpecialEvents: React.FC = () => {
       location: 'Port Blair',
       host: 'Rahul',
       rating: 4.5,
+      likes: 312,
+      dislikes: 15,
     },
     {
       image: '/images/Events/specialevent4.jpg',
@@ -33,6 +39,8 @@ const SpecialEvents: React.FC = () => {
       location: 'Neil Island',
       host: 'Sita',
       rating: 4.7,
+      likes: 156,
+      dislikes: 5,
     },
     {
       image: '/images/Events/specialevent5.jpg',
@@ -40,6 +48,8 @@ const SpecialEvents: React.FC = () => {
       location: 'Port Blair',
       host: 'Vikram',
       rating: 4.4,
+      likes: 278,
+      dislikes: 10,
     },
     {
       image: '/images/Events/specialevent6.jpg',
@@ -47,6 +57,8 @@ const SpecialEvents: React.FC = () => {
       location: 'Havelock Island',
       host: 'Karan',
       rating: 4.9,
+      likes: 423,
+      dislikes: 20,
     },
   ];
 

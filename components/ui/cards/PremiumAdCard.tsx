@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa';
+import LikeDislike from '../interactions/LikeDislike';
 import styles from './PremiumAdCard.module.css';
 
 interface PremiumAdCardProps {
@@ -24,16 +24,6 @@ const PremiumAdCard: React.FC<PremiumAdCardProps> = ({
   onDislike, 
   onClick 
 }) => {
-  const handleLike = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onLike?.(e);
-  };
-
-  const handleDislike = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onDislike?.(e);
-  };
-
   return (
     <div className={styles.card} onClick={onClick}>
       <div className={styles.imageContainer}>
@@ -52,16 +42,13 @@ const PremiumAdCard: React.FC<PremiumAdCardProps> = ({
         )}
       </div>
 
-      <div className={styles.interactionOverlay}>
-        <button className={`${styles.interactionBtn} ${styles.likeBtn}`} onClick={handleLike}>
-          <FaRegThumbsUp className={styles.icon} />
-          <span className={styles.count}>{likes}</span>
-        </button>
-        <button className={`${styles.interactionBtn} ${styles.dislikeBtn}`} onClick={handleDislike}>
-          <FaRegThumbsDown className={styles.icon} />
-          <span className={styles.count}>{dislikes}</span>
-        </button>
-      </div>
+      <LikeDislike 
+        likes={likes} 
+        dislikes={dislikes} 
+        onLike={onLike} 
+        onDislike={onDislike}
+        className={styles.interactionOverlay}
+      />
     </div>
   );
 };

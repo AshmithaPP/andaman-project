@@ -7,13 +7,15 @@ import EventCard from '@/components/events/EventCard';
 
 const LocalEvents: React.FC = () => {
   // Mock data for 12 events
-  const events = Array(12).fill({
+  const events = Array(12).fill(null).map((_, i) => ({
     image: '/images/Events/events1.jpg', 
     title: 'The Blue Lagoon',
     location: 'Port Blair',
     host: 'Anish',
     rating: 4.4,
-  });
+    likes: 120 + i * 5,
+    dislikes: 10 + i,
+  }));
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);

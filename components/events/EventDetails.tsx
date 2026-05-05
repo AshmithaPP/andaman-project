@@ -1,10 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import BackButton from '@/components/ui/buttons/BackButton';
 import Button from '@/components/ui/buttons/Button';
 import SimilarEvents from './SimilarEvents';
+import LikeDislike from '../ui/interactions/LikeDislike';
+import AdModal from '../ui/modals/AdModal';
 import styles from './EventDetails.module.css';
 
 interface EventDetailsProps {
@@ -12,6 +14,23 @@ interface EventDetailsProps {
 }
 
 const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
+  const [likes, setLikes] = useState(450);
+  const [dislikes, setDislikes] = useState(24);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleLike = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setLikes(prev => prev + 1);
+  };
+
+  const handleDislike = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setDislikes(prev => prev + 1);
+  };
+
+  const openAd = () => {
+    setIsModalOpen(true);
+  };
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
@@ -22,7 +41,7 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
         <div className={styles.mainGrid}>
           {/* Left: Image Gallery */}
           <div className={styles.gallery}>
-            <div className={styles.largeImage}>
+            <div className={styles.largeImage} onClick={openAd}>
               <Image 
                 src="/images/Events/eventdetails1.png" 
                 alt="Event Image 1" 
@@ -30,9 +49,16 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
                 height={428} 
                 className={styles.img}
               />
+              <LikeDislike 
+                likes={likes} 
+                dislikes={dislikes} 
+                onLike={handleLike} 
+                onDislike={handleDislike}
+                className={styles.likeDislikeOverlay}
+              />
             </div>
             <div className={styles.smallImages}>
-              <div className={styles.smallImageItem}>
+              <div className={styles.smallImageItem} onClick={openAd}>
                 <Image 
                   src="/images/Events/eventdetails2.png" 
                   alt="Event Image 2" 
@@ -40,14 +66,28 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
                   height={202} 
                   className={styles.img}
                 />
+                <LikeDislike 
+                  likes={120} 
+                  dislikes={5} 
+                  onLike={handleLike} 
+                  onDislike={handleDislike}
+                  className={styles.likeDislikeOverlaySmall}
+                />
               </div>
-              <div className={styles.smallImageItem}>
+              <div className={styles.smallImageItem} onClick={openAd}>
                 <Image 
                   src="/images/Events/eventdetails3.png" 
                   alt="Event Image 3" 
                   width={438} 
                   height={202} 
                   className={styles.img}
+                />
+                <LikeDislike 
+                  likes={85} 
+                  dislikes={2} 
+                  onLike={handleLike} 
+                  onDislike={handleDislike}
+                  className={styles.likeDislikeOverlaySmall}
                 />
               </div>
             </div>
@@ -130,6 +170,11 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
         {/* Similar Events Section */}
       </div>
       <SimilarEvents />
+      <AdModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        title="Sunburn Premium Access"
+      />
     </div>
   );
 };

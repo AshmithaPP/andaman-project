@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import FilterSortBar from '../ui/inputs/FilterSortBar';
 import styles from './EventsHero.module.css';
 
 const EventsHero: React.FC = () => {
@@ -63,6 +64,10 @@ const EventsHero: React.FC = () => {
             />
           ))}
         </div>
+      </div>
+
+      <div className={styles.filterWrapper}>
+        <FilterSortBar />
       </div>
     </section>
   );

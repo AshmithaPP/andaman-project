@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './EventCard.module.css';
+import LikeDislike from '../ui/interactions/LikeDislike';
 
 interface EventCardProps {
   image: string;
@@ -11,7 +12,10 @@ interface EventCardProps {
   location: string;
   host: string;
   rating: number;
-  isLiked?: boolean;
+  likes?: number;
+  dislikes?: number;
+  onLike?: (e: React.MouseEvent) => void;
+  onDislike?: (e: React.MouseEvent) => void;
   onPrev?: (e: React.MouseEvent) => void;
   onNext?: (e: React.MouseEvent) => void;
 }
@@ -22,7 +26,10 @@ const EventCard: React.FC<EventCardProps> = ({
   location,
   host,
   rating,
-  isLiked = false,
+  likes = 0,
+  dislikes = 0,
+  onLike,
+  onDislike,
   onPrev,
   onNext,
 }) => {
@@ -38,23 +45,14 @@ const EventCard: React.FC<EventCardProps> = ({
             <span className={styles.ratingText}>{rating.toFixed(1)}</span>
           </div>
 
-          {/* Like Button */}
-          <button 
-            className={styles.likeBtn} 
-            aria-label="Like"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-          >
-            <Image
-              src="/icons/heart.png"
-              alt="Like"
-              width={13}
-              height={12}
-              className={styles.heartIcon}
-            />
-          </button>
+          {/* Like/Dislike Component */}
+          <LikeDislike 
+            likes={likes} 
+            dislikes={dislikes} 
+            onLike={onLike} 
+            onDislike={onDislike}
+            className={styles.likeDislikeContainer}
+          />
 
           {/* Carousel Arrows */}
           {onPrev && (

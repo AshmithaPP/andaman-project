@@ -19,11 +19,9 @@ const EventsPage = () => {
       <EventsHero />
       <SpecialEvents />
       <EventsAd />
+      <LocalEvents />
       <ExoticEvents />
       <EventGallery />
-        <LocalEvents />
-      <SportsEvents />
-
     </main>
   );
 };
