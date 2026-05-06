@@ -6,19 +6,19 @@
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
   position: relative;
   padding: 20px 16px;
   width: 100%;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  border-color: #f0f0f0;
 }
 
 .content {
-  z-index: 2;
+  z-index: 3;
   position: relative;
 }
 
@@ -36,22 +36,349 @@
   margin: 0;
 }
 
+/* ==================== IMAGE WRAPPER ==================== */
 .imageWrapper {
   position: absolute;
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 50%;
+  height: 65%;
   z-index: 1;
+  overflow: visible;
+  pointer-events: none;
 }
 
+/* Default Image - Foreground Layer */
 .image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  object-position: bottom right;
+  object-position: bottom center;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease;
 }
 
-/* Variant Specifics */
+/* Hover Image - Background/Swap Layer */
+.hoverImage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: 1;
+  opacity: 0;
+}
 
+/* Global Hover States */
+.card:hover .hoverImage {
+  opacity: 1;
+}
+
+/* === Desktop Specific Positions === */
+@media (min-width: 769px) {
+
+  /* Services (Large Vertical) */
+  .services .imageWrapper {
+    height: 100%;
+  }
+
+  .services .image {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 280px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 2;
+    object-fit: contain;
+    object-position: bottom center;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .services .hoverImage {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 280px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 1;
+    opacity: 0;
+    object-fit: contain;
+    object-position: bottom center;
+    transform: translateY(10%) !important;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+  }
+
+  .services:hover .image {
+    transform: translateY(0%) !important;
+  }
+
+  .services:hover .hoverImage {
+    opacity: 1;
+    transform: translateY(0%) !important;
+  }
+
+  /* Travel (Large Horizontal) */
+  .travel:hover {
+    border-color: #FFC107 !important;
+  }
+
+  .travel .imageWrapper {
+    height: 85% !important;
+  }
+
+  .travel .image {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: 2;
+  }
+
+  .travel .hoverImage {
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 20px !important;
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .travel:hover .image {
+    transform: none !important;
+  }
+
+  .travel:hover .hoverImage {
+    opacity: 1 !important;
+    transform: translate(-2%, -2%) !important;
+  }
+
+  /* Buy & Sell (Medium Horizontal) */
+  .buy-sell .imageWrapper {
+    height: 100% !important;
+  }
+
+  .buy-sell .image {
+    width: 100% !important;
+    height: 75% !important;
+    max-height: 160px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 2;
+    object-fit: contain;
+    object-position: bottom center;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .buy-sell .hoverImage {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 160px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 1;
+    opacity: 0;
+    object-fit: contain;
+    object-position: bottom center;
+    transform: translateY(10%) !important;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+  }
+
+  .buy-sell .image {
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .buy-sell .hoverImage {
+    z-index: 1;
+    transform: translateY(10%) !important;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+  }
+
+  .buy-sell:hover .image {
+    transform: translateY(-8px) !important;
+  }
+
+  .buy-sell:hover .hoverImage {
+    opacity: 1 !important;
+    transform: translateY(0%) !important;
+  }
+
+  /* Jobs (Small Vertical) */
+  .jobs .imageWrapper {
+    height: 100%;
+  }
+
+  .jobs:hover {
+    border-color: #FFC107 !important;
+  }
+
+  .jobs .image {
+    width: 124px !important;
+    height: 98px !important;
+    top: 129px !important;
+    right: -16px !important;
+    left: auto !important;
+    bottom: auto !important;
+  }
+
+  .jobs:hover .hoverImage {
+    transform: translateY(0);
+  }
+
+  .jobs .hoverImage {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 160px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 1;
+    opacity: 0;
+    object-fit: contain;
+    object-position: bottom center;
+    transform: translateY(10%) !important;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+  }
+
+  /* Hotels (Small Vertical) */
+  .hotels:hover {
+    border-color: #FFC107 !important;
+  }
+
+  .hotels .image {
+    width: 100% !important;
+    height: 75% !important;
+    max-height: 160px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 2;
+    object-fit: contain;
+    object-position: bottom center;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .hotels .hoverImage {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 160px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 1;
+    opacity: 0;
+    object-fit: contain;
+    object-position: bottom center;
+    transform: translateY(10%) !important;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+  }
+
+  .hotels:hover .image {
+    transform: translateY(0%) !important;
+  }
+
+  .hotels:hover .hoverImage {
+    opacity: 1 !important;
+    transform: translateY(0%) !important;
+  }
+
+  /* Events (Events Horizontal) */
+  .events .imageWrapper {
+    height: 100% !important;
+  }
+
+  .events .image,
+  .events .hoverImage {
+    width: auto !important;
+    height: 100px !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 5px !important;
+    left: auto !important;
+    transform: none !important;
+    object-fit: contain;
+    object-position: bottom right;
+  }
+
+  /* News (Small Horizontal) */
+  .news .image {
+    height: 70px !important;
+    width: auto !important;
+    bottom: 0 !important;
+    right: 50px !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .news .hoverImage {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 280px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 1;
+    opacity: 0;
+    object-fit: contain;
+    object-position: bottom center;
+    transform: translateY(10%) !important;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+  }
+
+  /* Contact (Small Vertical) */
+  .contact .image {
+    height: 85px !important;
+    width: auto !important;
+    bottom: 0 !important;
+    right: 20px !important;
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .contact .hoverImage {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 280px !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    z-index: 1;
+    opacity: 0;
+    object-fit: contain;
+    object-position: bottom center;
+    transform: translateY(10%) !important;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.4s ease;
+  }
+
+  .contact:hover .image {
+    transform: translateY(-5px);
+  }
+}
+
+/* === Variants === */
 .large-vertical {
   height: 434px;
 }
@@ -69,10 +396,6 @@
 
 .small-vertical {
   height: 227px;
-}
-
-.contact-vertical {
-  height: 226px;
 }
 
 .small-vertical .title {
@@ -125,6 +448,11 @@
 .large-horizontal .description {
   font-size: 14px;
   line-height: 21px;
+  color: #818181;
+  max-width: 225px;
+  height: 42px;
+  margin-top: 16px;
+  overflow: hidden;
 }
 
 .events-horizontal {
@@ -141,6 +469,7 @@
   line-height: 18px;
 }
 
+/* Responsive */
 @media (max-width: 1200px) {
   .card {
     height: auto !important;
@@ -151,5 +480,71 @@
     position: relative;
     height: 150px;
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 16px !important;
+  }
+
+  .content {
+    position: relative !important;
+    z-index: 10 !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+
+  .imageWrapper {
+    position: relative !important;
+    height: 140px !important;
+    /* Increased slightly to prevent "collapsed" look */
+    width: 100% !important;
+    margin-top: auto !important;
+    z-index: 1 !important;
+    display: block !important;
+  }
+
+  .card .image,
+  .card .hoverImage {
+    position: absolute !important;
+    height: 100% !important;
+    width: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    transform: none !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+
+  .title {
+    font-size: 18px !important;
+    line-height: 26px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .description {
+    font-size: 12px !important;
+    line-height: 16px !important;
+  }
+
+  /* Specific fix for Buy & Sell illustration which has an extreme aspect ratio */
+  .buy-sell .imageWrapper {
+    height: 140px !important;
+    margin-top: auto !important;
+  }
+
+  .buy-sell .image,
+  .buy-sell .hoverImage {
+    width: 300% !important;
+    left: -100% !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
   }
 }

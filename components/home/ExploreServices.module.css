@@ -126,11 +126,40 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .section {
+    padding: 24px 0;
+  }
+
+  .heading {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 24px;
+  }
+
+  .grid {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .svcCol {
+    width: 100%;
+    flex: none;
+  }
+
+  .mainGrid {
+    width: 100%;
+    flex: none;
+    gap: 16px;
+  }
 
   .topRow,
   .bottomRow {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
   }
 
   .cardHotel,
@@ -140,7 +169,12 @@
   .cardTravel,
   .cardEvents,
   .cardContact {
-    flex: unset;
-    width: 100%;
+    flex: 1 1 calc(50% - 8px);
+    width: auto;
+    min-width: 0;
+  }
+
+  .cardContact {
+    margin-top: 0;
   }
 }

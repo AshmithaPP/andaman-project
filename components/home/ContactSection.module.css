@@ -359,7 +359,7 @@ a.cValue:hover {
 ══════════════════════════════════════ */
 @media (max-width: 991px) {
   .sectionWrapper {
-    padding: 40px 0;
+    padding: 24px 0;
   }
 
   /* Stack vertically, auto height */

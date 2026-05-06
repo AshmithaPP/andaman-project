@@ -126,7 +126,7 @@
 
 @media (max-width: 991px) {
   .sectionWrapper {
-    padding: 40px 15px;
+    padding: 24px 15px;
   }
 
   .heading {
@@ -134,7 +134,6 @@
     line-height: 38px;
     margin-bottom: 24px;
     padding-left: 0;
-    text-align: center;
   }
 
   .row {

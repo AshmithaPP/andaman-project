@@ -115,7 +115,7 @@
 /* ≤1024px: stack vertically */
 @media (max-width: 1024px) {
   .newsSection {
-    padding: 40px 0;
+    padding: 24px 0;
   }
 
   .container {
@@ -148,5 +148,10 @@
   .title {
     font-size: 24px;
     line-height: 36px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 20px;
   }
 }

@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   padding-bottom: 40px;
+  padding-top: 10px;
 }
 
 .container {
@@ -155,11 +156,17 @@
 
 @media (max-width: 650px) {
   .section {
-    padding-bottom: 20px;
+    padding-bottom: 16px;
   }
 
   .container {
     padding: 0; /* Remove container padding to allow grid to span full width */
+  }
+
+  .title {
+    padding-top: 25px;
+    font-size: 20px;
+    line-height: 28px;
   }
 
   .titleWrapper {

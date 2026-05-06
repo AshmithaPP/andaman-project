@@ -316,6 +316,12 @@
 }
 
 @media (max-width: 768px) {
+  .mainGrid {
+    margin-bottom: 24px;
+  }
+  .bottomGrid {
+    gap: 24px;
+  }
   .gallery {
     flex-direction: column;
   }
@@ -329,5 +335,9 @@
   .sectionTitle {
     font-size: 20px;
     margin-bottom: 16px;
+  }
+  .title {
+    font-size: 20px;
+    line-height: 28px;
   }
 }
