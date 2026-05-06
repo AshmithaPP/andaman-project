@@ -14,7 +14,7 @@
 }
 
 .card:hover {
-  border-color: #f0f0f0;
+  border-color: #FFC107;
 }
 
 .content {
@@ -128,10 +128,6 @@
   }
 
   /* Travel (Large Horizontal) */
-  .travel:hover {
-    border-color: #FFC107 !important;
-  }
-
   .travel .imageWrapper {
     height: 85% !important;
   }
@@ -226,10 +222,6 @@
     height: 100%;
   }
 
-  .jobs:hover {
-    border-color: #FFC107 !important;
-  }
-
   .jobs .image {
     width: 124px !important;
     height: 98px !important;
@@ -260,10 +252,6 @@
   }
 
   /* Hotels (Small Vertical) */
-  .hotels:hover {
-    border-color: #FFC107 !important;
-  }
-
   .hotels .image {
     width: 100% !important;
     height: 75% !important;
@@ -489,7 +477,7 @@
     flex-direction: column !important;
     height: auto !important;
     min-height: 0 !important;
-    padding: 16px !important;
+    padding: 16px 16px 0 !important;
   }
 
   .content {
@@ -542,15 +530,60 @@
   }
 
   /* Global Mobile Hover/Active Interactions */
+  .card:hover,
+  .card:active {
+    border-color: #FFC107 !important;
+  }
+
+  /* Universal Hover Image Visibility */
   .card:hover .hoverImage,
   .card:active .hoverImage {
     opacity: 1 !important;
     transform: translateY(0%) !important;
   }
 
-  .card:hover .image,
-  .card:active .image {
+  /* Specific Card Replica Logic for Foreground Images */
+  
+  /* Travel needs no initial transform to match desktop behavior */
+  .travel .hoverImage {
+    transform: none !important;
+  }
+  
+  /* Buy & Sell: -8px movement to match desktop */
+  .buy-sell:hover .image,
+  .buy-sell:active .image {
+    transform: translateY(-8px) !important;
+  }
+
+  /* Contact: -5px movement */
+  .contact:hover .image,
+  .contact:active .image {
     transform: translateY(-5px) !important;
+  }
+
+  /* Travel: No movement for foreground, special diagonal for background */
+  .travel:hover .image,
+  .travel:active .image {
+    transform: none !important;
+  }
+  
+  .travel:hover .hoverImage,
+  .travel:active .hoverImage {
+    transform: translate(-2%, -2%) !important;
+  }
+
+  /* Services, Hotels, Jobs, Events, News: No vertical movement on desktop */
+  .services:hover .image,
+  .services:active .image,
+  .hotels:hover .image,
+  .hotels:active .image,
+  .jobs:hover .image,
+  .jobs:active .image,
+  .events:hover .image,
+  .events:active .image,
+  .news:hover .image,
+  .news:active .image {
+    transform: translateY(0%) !important;
   }
 
   .title {
@@ -578,11 +611,63 @@
     object-position: center bottom !important;
   }
 
-  /* Specific sizing for Jobs illustration on mobile */
-  .jobs .image,
-  .jobs .hoverImage {
-    height: 100px !important;
+  /* Specific sizing for Hotels on mobile */
+  .hotels .image {
+    height: 75% !important;
     top: auto !important;
     bottom: 0 !important;
   }
+
+  .hotels .hoverImage {
+    height: 100% !important;
+    top: auto !important;
+    bottom: 0 !important;
+  }
+
+  /* Specific sizing for Jobs illustration on mobile */
+  .jobs .imageWrapper {
+    height: 160px !important;
+  }
+
+  .jobs .image {
+    width: 130px !important;
+    height: 100px !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: -20px !important;
+    left: auto !important;
+    object-position: right bottom !important;
+    z-index: 2;
+  }
+
+  .jobs .hoverImage {
+    height: 100% !important;
+    width: 100% !important;
+    max-height: 160px !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    object-position: left bottom !important;
+    z-index: 1;
+  }
+    .news .image {
+    height: 100px !important;
+    width: auto !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 10px !important;
+    object-position: right bottom !important;
+  }
+      .contact .image {
+    height: 110px !important;
+    width: auto !important;
+    top: auto !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 120px !important;
+    object-position: right bottom !important;
+  }
+
 }
