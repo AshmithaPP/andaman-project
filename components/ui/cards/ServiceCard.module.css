@@ -305,11 +305,11 @@
     height: 100px !important;
     top: auto !important;
     bottom: 0 !important;
-    right: 5px !important;
+    right: 0 !important;
     left: auto !important;
     transform: none !important;
     object-fit: contain;
-    object-position: bottom right;
+    object-position: right bottom;
     z-index: 2;
   }
 
@@ -488,6 +488,7 @@
   }
 }
 
+/* mobile */
 @media (max-width: 768px) {
   .card {
     display: flex !important;
@@ -614,6 +615,36 @@
     line-height: 16px !important;
   }
 
+  /* Services Mobile Overrides */
+  .services .imageWrapper {
+    height: 180px !important;
+  }
+
+  .services .hoverImage {
+    width: 150% !important;
+    height: 120% !important;
+    left: -25% !important;
+    top: auto !important;
+    bottom: -10% !important;
+    object-position: center bottom !important;
+  }
+
+  /* Travel Mobile Overrides */
+  .travel .imageWrapper {
+    height: 150px !important;
+    margin-top: 10px !important;
+  }
+
+  .travel .hoverImage {
+    width: 160% !important;
+    height: 130% !important;
+    right: -30% !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: -10% !important;
+    object-position: right bottom !important;
+  }
+
   /* Specific fix for Buy & Sell illustration which has an extreme aspect ratio */
   .buy-sell .imageWrapper {
     height: 140px !important;
@@ -636,9 +667,12 @@
   }
 
   .hotels .hoverImage {
-    height: 100% !important;
+    width: 140% !important;
+    height: 110% !important;
+    left: -20% !important;
     top: auto !important;
-    bottom: 0 !important;
+    bottom: -5% !important;
+    object-position: center bottom !important;
   }
 
   /* Specific sizing for Jobs illustration on mobile */
@@ -658,14 +692,12 @@
   }
 
   .jobs .hoverImage {
-    height: 100% !important;
-    width: 100% !important;
-    max-height: 160px !important;
+    width: 180% !important;
+    height: 130% !important;
+    left: -40% !important;
     top: auto !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    object-position: left bottom !important;
+    bottom: -10% !important;
+    object-position: center bottom !important;
     z-index: 1;
   }
 
@@ -679,6 +711,16 @@
     object-position: right bottom !important;
   }
 
+  .news .hoverImage {
+    width: 150% !important;
+    height: 120% !important;
+    right: -25% !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: -10% !important;
+    object-position: right bottom !important;
+  }
+
   .contact .image {
     height: 110px !important;
     width: auto !important;
@@ -686,6 +728,16 @@
     bottom: 0 !important;
     right: 0 !important;
     left: 120px !important;
+    object-position: right bottom !important;
+  }
+
+  .contact .hoverImage {
+    width: 160% !important;
+    height: 100% !important;
+    right: -30% !important;
+    left: auto !important;
+    top: auto !important;
+    bottom: -10% !important;
     object-position: right bottom !important;
   }
 
@@ -698,23 +750,86 @@
   .events .image {
     height: 100px !important;
     width: auto !important;
-    right: 5px !important;
+    right: -16px !important;
+    /* Bleed to the very edge */
     left: auto !important;
     bottom: 0 !important;
     top: auto !important;
     transform: none !important;
-    object-position: bottom right !important;
+    object-position: right bottom !important;
   }
 
   .events .hoverImage {
-    height: 100% !important;
-    width: 100% !important;
-    right: -30px !important;
+    height: 250% !important;
+    width: 200% !important;
+    right: -30% !important;
     left: auto !important;
-    top: 40px !important;
-    bottom: 0 !important;
-    transform: none !important;
-    object-position: bottom right !important;
+    top: auto !important;
+    bottom: -0% !important;
+    object-position: right bottom !important;
+    z-index: 1;
   }
 
+}
+
+/* Border highlight */
+.card:hover,
+.card:active,
+.card.touch-active {
+  border-color: #FFC107 !important;
+}
+
+/* Universal hover image reveal */
+.card:hover .hoverImage,
+.card:active .hoverImage,
+.card.touch-active .hoverImage {
+  opacity: 1 !important;
+  transform: translateY(0%) !important;
+}
+
+/* buy-sell foreground lift */
+.buy-sell:hover .image,
+.buy-sell:active .image,
+.buy-sell.touch-active .image {
+  transform: translateY(-8px) !important;
+}
+
+/* contact foreground lift */
+.contact:hover .image,
+.contact:active .image,
+.contact.touch-active .image {
+  transform: translateY(-5px) !important;
+}
+
+/* travel — no foreground movement */
+.travel:hover .image,
+.travel:active .image,
+.travel.touch-active .image {
+  transform: none !important;
+}
+
+/* travel — diagonal blob */
+.travel:hover .hoverImage,
+.travel:active .hoverImage,
+.travel.touch-active .hoverImage {
+  transform: translate(-2%, -2%) !important;
+}
+
+/* no-movement cards */
+.services:hover .image,
+.services:active .image,
+.services.touch-active .image,
+.hotels:hover .image,
+.hotels:active .image,
+.hotels.touch-active .image,
+.jobs:hover .image,
+.jobs:active .image,
+.jobs.touch-active .image,
+.events:hover .image,
+.events:active .image,
+.events.touch-active .image,
+.news:hover .image,
+.news:active .image,
+.news.touch-active .image {
+  transform: translateY(0%) !important;
 }

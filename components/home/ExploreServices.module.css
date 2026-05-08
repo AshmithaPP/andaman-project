@@ -125,7 +125,7 @@
     margin-top: 0;
   }
 }
-
+/* mobile  */
 @media (max-width: 768px) {
   .section {
     padding: 24px 0;
