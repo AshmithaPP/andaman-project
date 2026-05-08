@@ -129,13 +129,16 @@
 
   /* Travel (Large Horizontal) */
   .travel .imageWrapper {
-    height: 85% !important;
+    height: 100% !important;
+    bottom: -5px !important;
+    right: -2px !important;
   }
 
   .travel .image {
     width: 100% !important;
     height: 100% !important;
-    top: 0 !important;
+    top: auto !important;
+    bottom: 0 !important;
     left: 0 !important;
     object-fit: contain;
     object-position: bottom right;
@@ -145,8 +148,9 @@
   .travel .hoverImage {
     width: 100% !important;
     height: 100% !important;
-    top: 0 !important;
-    left: 20px !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 30px !important;
     object-fit: contain;
     object-position: bottom right;
     z-index: 1;
@@ -296,8 +300,7 @@
     height: 100% !important;
   }
 
-  .events .image,
-  .events .hoverImage {
+  .events .image {
     width: auto !important;
     height: 100px !important;
     top: auto !important;
@@ -307,6 +310,20 @@
     transform: none !important;
     object-fit: contain;
     object-position: bottom right;
+    z-index: 2;
+  }
+
+  .events .hoverImage {
+    width: 100% !important;
+    height: 100% !important;
+    top: 40px !important;
+    bottom: 0 !important;
+    right: -30px !important;
+    left: auto !important;
+    transform: none !important;
+    object-fit: contain;
+    object-position: bottom right;
+    z-index: 1;
   }
 
   /* News (Small Horizontal) */
@@ -543,12 +560,12 @@
   }
 
   /* Specific Card Replica Logic for Foreground Images */
-  
+
   /* Travel needs no initial transform to match desktop behavior */
   .travel .hoverImage {
     transform: none !important;
   }
-  
+
   /* Buy & Sell: -8px movement to match desktop */
   .buy-sell:hover .image,
   .buy-sell:active .image {
@@ -566,7 +583,7 @@
   .travel:active .image {
     transform: none !important;
   }
-  
+
   .travel:hover .hoverImage,
   .travel:active .hoverImage {
     transform: translate(-2%, -2%) !important;
@@ -651,7 +668,8 @@
     object-position: left bottom !important;
     z-index: 1;
   }
-    .news .image {
+
+  .news .image {
     height: 100px !important;
     width: auto !important;
     top: auto !important;
@@ -660,7 +678,8 @@
     left: 10px !important;
     object-position: right bottom !important;
   }
-      .contact .image {
+
+  .contact .image {
     height: 110px !important;
     width: auto !important;
     top: auto !important;
@@ -668,6 +687,34 @@
     right: 0 !important;
     left: 120px !important;
     object-position: right bottom !important;
+  }
+
+  /* Events Specific Mobile Overrides */
+  .events .imageWrapper {
+    height: 160px !important;
+    margin-top: 10px !important;
+  }
+
+  .events .image {
+    height: 100px !important;
+    width: auto !important;
+    right: 5px !important;
+    left: auto !important;
+    bottom: 0 !important;
+    top: auto !important;
+    transform: none !important;
+    object-position: bottom right !important;
+  }
+
+  .events .hoverImage {
+    height: 100% !important;
+    width: 100% !important;
+    right: -30px !important;
+    left: auto !important;
+    top: 40px !important;
+    bottom: 0 !important;
+    transform: none !important;
+    object-position: bottom right !important;
   }
 
 }

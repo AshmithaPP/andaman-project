@@ -4,48 +4,52 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
+  padding: 20px;
 }
 
 .modal {
-  width: 90%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 420px;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 24px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6);
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .closeBtn {
   position: absolute;
   top: 16px;
   right: 16px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  color: white;
   border: none;
   border-radius: 50%;
   width: 32px;
   height: 32px;
-  font-size: 24px;
-  line-height: 1;
+  font-size: 20px;
   cursor: pointer;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .closeBtn:hover {
   background: #ffffff;
-  color: #ff4d4d;
+  color: #000;
+  transform: rotate(90deg);
 }
 
 .content {
@@ -55,8 +59,9 @@
 
 .imageContainer {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 1 / 1; /* More compact, square format */
   position: relative;
+  background: #f0f0f0;
 }
 
 .adImage {
@@ -64,41 +69,47 @@
 }
 
 .info {
-  padding: 32px;
+  padding: 24px;
   text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
 }
 
 .title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 24px;
-  color: #1a1a1a;
-  margin-bottom: 12px;
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 22px;
+  color: #111;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 
 .text {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  font-family: var(--font-poppins);
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .actionBtn {
+  width: 100%;
   background: #006D77;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 12px 32px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 16px;
+  border-radius: 12px;
+  padding: 14px;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  font-size: 15px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 109, 119, 0.3);
 }
 
 .actionBtn:hover {
   background: #005a63;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 109, 119, 0.4);
 }
 
 .actionBtn:active {
@@ -111,15 +122,18 @@
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
+  .modal {
+    max-width: 100%;
+  }
   .title {
     font-size: 20px;
   }
   .info {
-    padding: 24px;
+    padding: 20px;
   }
 }

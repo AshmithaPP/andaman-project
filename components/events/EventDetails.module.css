@@ -13,8 +13,8 @@
 }
 
 .backBtn {
-  margin-top:50px; /* Adjusting to match 146px from top including potential header */
-  margin-bottom: 40px;
+  margin-top: 12px;
+  margin-bottom: 16px;
 }
 
 .mainGrid {
@@ -22,7 +22,7 @@
   gap: 24px;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .gallery {
@@ -104,7 +104,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-top: 65px; /* Alignment with design top offset (303px vs 238px) */
+  margin-top: 12px; 
 }
 
 .title {
@@ -292,7 +292,7 @@
     flex-direction: column;
     align-items: center;
     gap: 32px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
   }
   .bottomGrid {
     flex-direction: column;
@@ -339,5 +339,24 @@
   .title {
     font-size: 20px;
     line-height: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 20px;
+  }
+  .backBtn {
+    margin-top: 0px;
+    margin-bottom: 12px;
+  }
+  .mainGrid {
+    gap: 20px;
+  }
+  .gallery {
+    gap: 12px;
+  }
+  .smallImages {
+    gap: 12px;
   }
 }
