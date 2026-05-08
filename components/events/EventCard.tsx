@@ -36,8 +36,15 @@ const EventCard: React.FC<EventCardProps> = ({
   return (
     <Link href="/events/sunburn-andaman-live" className={styles.cardLink}>
       <div className={styles.card}>
-        <div className={styles.imageWrapper}>
-          <Image src={image} alt={title} width={207} height={184} className={styles.eventImage} />
+        <div className={styles.imageWrapper} onContextMenu={(e) => e.preventDefault()}>
+          <Image 
+            src={image} 
+            alt={title} 
+            width={207} 
+            height={184} 
+            className={styles.eventImage} 
+            draggable={false}
+          />
           
           {/* Rating Tag */}
           <div className={styles.ratingTag}>

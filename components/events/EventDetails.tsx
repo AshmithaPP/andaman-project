@@ -41,13 +41,18 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
         <div className={styles.mainGrid}>
           {/* Left: Image Gallery */}
           <div className={styles.gallery}>
-            <div className={styles.largeImage} onClick={openAd}>
+            <div 
+              className={styles.largeImage} 
+              onClick={openAd}
+              onContextMenu={(e) => e.preventDefault()}
+            >
               <Image 
                 src="/images/Events/eventdetails1.png" 
                 alt="Event Image 1" 
                 width={437} 
                 height={428} 
                 className={styles.img}
+                draggable={false}
               />
               <LikeDislike 
                 likes={likes} 
@@ -58,13 +63,18 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
               />
             </div>
             <div className={styles.smallImages}>
-              <div className={styles.smallImageItem} onClick={openAd}>
+              <div 
+                className={styles.smallImageItem} 
+                onClick={openAd}
+                onContextMenu={(e) => e.preventDefault()}
+              >
                 <Image 
                   src="/images/Events/eventdetails2.png" 
                   alt="Event Image 2" 
                   width={438} 
                   height={202} 
                   className={styles.img}
+                  draggable={false}
                 />
                 <LikeDislike 
                   likes={120} 
@@ -74,13 +84,18 @@ const EventDetails: React.FC<EventDetailsProps> = ({ id }) => {
                   className={styles.likeDislikeOverlaySmall}
                 />
               </div>
-              <div className={styles.smallImageItem} onClick={openAd}>
+              <div 
+                className={styles.smallImageItem} 
+                onClick={openAd}
+                onContextMenu={(e) => e.preventDefault()}
+              >
                 <Image 
                   src="/images/Events/eventdetails3.png" 
                   alt="Event Image 3" 
                   width={438} 
                   height={202} 
                   className={styles.img}
+                  draggable={false}
                 />
                 <LikeDislike 
                   likes={85} 
