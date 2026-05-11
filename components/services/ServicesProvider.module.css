@@ -1,0 +1,148 @@
+.section {
+  width: 100%;
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  padding: 0 30px;
+}
+
+.banner {
+  width: 100%;
+  height: 264px;
+  margin: 0 auto;
+  background: radial-gradient(circle at 30% 20%, #FFFDF5 0%, transparent 50%),
+              radial-gradient(circle at 70% 50%, #f8d66d44 0%, transparent 60%),
+              radial-gradient(circle at 50% 30%, #f8d66d33 0%, transparent 50%),
+              #FFFFFF;
+  border: 1px solid #FFC83D;
+  border-radius: 16px;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+}
+
+.content {
+  max-width: 764px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  color: #000000;
+  margin: 0;
+}
+
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #969696;
+  margin: 0;
+}
+
+.registerBtn {
+  margin-top: 16px;
+}
+
+.imageWrapper {
+  position: absolute;
+  right: 40px;
+  bottom: 0;
+  height: 377px;
+  width: 459px;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end; /* Force image to bottom of its own box */
+}
+
+.providerImage {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(8px 12px 14.8px rgba(0, 0, 0, 0.25));
+}
+
+/* Positioning the image to overflow the top */
+.imageWrapper {
+  bottom: -25px;
+  /* Align image bottom with banner bottom */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .banner {
+    height: auto;
+    flex-direction: column;
+    padding: 30px;
+    gap: 10px; /* Reduced gap */
+    text-align: center;
+    align-items: center;
+    overflow: hidden; /* Prevent image overflow from breaking layout on small screens */
+  }
+
+  .content {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .imageWrapper {
+    position: relative;
+    right: auto;
+    bottom: -40px; /* Pull it slightly lower to sit on the edge better */
+    margin: 0 auto; /* Removed top margin */
+    height: auto;
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .providerImage {
+    width: 100%;
+    height: auto;
+    object-position: bottom;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .banner {
+    padding: 24px 20px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./InputField.module.css";
 
-export type InputFieldType = "text" | "email" | "tel" | "select";
+export type InputFieldType = "text" | "email" | "tel" | "select" | "textarea" | "number";
 
 export interface SelectOption {
   value: string;
@@ -13,15 +13,17 @@ export interface SelectOption {
 export interface InputFieldProps {
   id: string;
   name: string;
+  label?: string;
   placeholder?: string;
   type?: InputFieldType;
   required?: boolean;
   value: string;
   onChange: (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => void;
   options?: SelectOption[];
   error?: string;
+  rows?: number;
 }
 
 const ChevronIcon = () => (
@@ -46,6 +48,7 @@ const ChevronIcon = () => (
 const InputField: React.FC<InputFieldProps> = ({
   id,
   name,
+  label,
   placeholder,
   type = "text",
   required = false,
@@ -53,10 +56,35 @@ const InputField: React.FC<InputFieldProps> = ({
   onChange,
   options = [],
   error,
+  rows = 4,
 }) => {
-  if (type === "select") {
+  const renderPlaceholder = (text: string) => {
+    if (!text) return null;
+    const parts = text.split('*');
     return (
-      <div className={styles.fieldGroup}>
+      <label className={`${styles.placeholderLabel} ${value ? styles.hidden : ''}`} htmlFor={id}>
+        {parts[0]}
+        {text.includes('*') && <span className={styles.requiredStar}>*</span>}
+        {parts[1]}
+      </label>
+    );
+  };
+
+  const renderLabel = () => {
+    if (!label) return null;
+    const parts = label.split('*');
+    return (
+      <label className={styles.externalLabel} htmlFor={id}>
+        {parts[0]}
+        {label.includes('*') && <span className={styles.requiredStar}>*</span>}
+        {parts[1]}
+      </label>
+    );
+  };
+
+  const renderField = () => {
+    if (type === "select") {
+      return (
         <div className={styles.selectWrap}>
           <select
             id={id}
@@ -83,29 +111,50 @@ const InputField: React.FC<InputFieldProps> = ({
             <ChevronIcon />
           </span>
         </div>
-        {error && (
-          <span id={`${id}-error`} className={styles.fieldError} role="alert">
-            {error}
-          </span>
-        )}
+      );
+    }
+
+    if (type === "textarea") {
+      return (
+        <div className={styles.inputWrap}>
+          <textarea
+            id={id}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required={required}
+            rows={rows}
+            className={`${styles.inputField} ${styles.textareaField} ${error ? styles.errorState : ""}`}
+            aria-invalid={!!error}
+            aria-describedby={error ? `${id}-error` : undefined}
+          />
+          {placeholder && renderPlaceholder(placeholder)}
+        </div>
+      );
+    }
+
+    return (
+      <div className={styles.inputWrap}>
+        <input
+          id={id}
+          name={name}
+          type={type}
+          value={value}
+          onChange={onChange}
+          required={required}
+          className={`${styles.inputField} ${error ? styles.errorState : ""}`}
+          aria-invalid={!!error}
+          aria-describedby={error ? `${id}-error` : undefined}
+        />
+        {placeholder && renderPlaceholder(placeholder)}
       </div>
     );
-  }
+  };
 
   return (
     <div className={styles.fieldGroup}>
-      <input
-        id={id}
-        name={name}
-        type={type}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        required={required}
-        className={`${styles.inputField} ${error ? styles.errorState : ""}`}
-        aria-invalid={!!error}
-        aria-describedby={error ? `${id}-error` : undefined}
-      />
+      {renderLabel()}
+      {renderField()}
       {error && (
         <span id={`${id}-error`} className={styles.fieldError} role="alert">
           {error}

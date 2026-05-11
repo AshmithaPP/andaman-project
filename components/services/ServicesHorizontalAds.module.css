@@ -1,0 +1,54 @@
+.section {
+  width: 100%;
+  padding: 40px 0 80px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  padding: 0 30px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.adCard {
+  width: 100%;
+  aspect-ratio: 668 / 254;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.adCard:hover {
+  transform: scale(1.02);
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .section {
+    padding: 30px 0 50px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

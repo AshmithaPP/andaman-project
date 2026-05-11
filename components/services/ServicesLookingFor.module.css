@@ -1,0 +1,138 @@
+.section {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  padding: 0 30px;
+}
+
+.heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 60px;
+  color: #000000;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: none; 
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #006D77;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.navBtn:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.prevBtn {
+  left: -22px;
+}
+
+.nextBtn {
+  right: -22px;
+}
+
+/* Responsive grid */
+@media (max-width: 1440px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1360px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 10px 0;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cardItem {
+    flex: 0 0 160px; /* Smaller width for category cards */
+  }
+
+  .navBtn {
+    display: flex; /* Show arrows on tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 20px 0;
+  }
+
+  .heading {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .cardItem {
+    flex: 0 0 200px; /* Increased card size */
+  }
+
+  .navBtn {
+    display: none; /* Swipe only on mobile */
+  }
+}

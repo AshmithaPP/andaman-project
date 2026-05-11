@@ -2,21 +2,22 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import styles from './HeroSection.module.css';
+import ServiceSearch from '../ui/inputs/ServiceSearch';
+import styles from './ServicesHero.module.css';
 
-interface HeroSectionProps {
-  images: string[];
-  autoSlide?: boolean;
-  autoSlideInterval?: number;
-}
+const ServicesHero: React.FC = () => {
+  const images = [
+    '/images/hero1F.png',
+    '/images/hero-2.png',
+    '/images/hero-3.png',
+    '/images/hero-4.png',
+    '/images/hero-5.png',
+  ];
 
-const HeroSection: React.FC<HeroSectionProps> = ({
-  images,
-  autoSlide = true,
-  autoSlideInterval = 5000,
-}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const autoSlide = true;
+  const autoSlideInterval = 5000;
 
   const nextSlide = useCallback(() => {
     if (isTransitioning) return;
@@ -38,10 +39,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearInterval(interval);
   }, [autoSlide, autoSlideInterval, nextSlide]);
 
-  if (!images || images.length === 0) return null;
-
   return (
-    <section className={styles.heroSection}>
+    <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.carousel}>
           {/* Sliding strip: all images in a single horizontal row */}
@@ -55,7 +54,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <div key={index} className={styles.slide}>
                 <Image
                   src={image}
-                  alt={`Andaman Hero Slide ${index + 1}`}
+                  alt={`Service Hero Slide ${index + 1}`}
                   fill
                   priority={index === 0}
                   className={styles.image}
@@ -78,8 +77,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           ))}
         </div>
       </div>
+
+      <div className={styles.searchWrapper}>
+        <ServiceSearch />
+      </div>
     </section>
   );
 };
 
-export default HeroSection;
+export default ServicesHero;

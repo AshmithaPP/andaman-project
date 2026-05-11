@@ -1,0 +1,266 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modalContainer {
+  width: 100%;
+  max-width: 1396px;
+  height: 680px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+  animation: modalEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.modalContainer::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.formCard {
+  flex: 923;
+  min-width: 0;
+  height: 680px;
+  background: #ffffff;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border: 1px solid #e0e0e0;
+  border-right: none;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.formInner {
+  position: absolute;
+  top: 60px;
+  left: 60px;
+  width: 545px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.backBtn {
+  width: 71px;
+  height: 32px;
+  border-radius: 8px;
+  padding: 4px 18px !important;
+  font-size: 14px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 100%;
+  color: #1B1B1B;
+  margin: 0;
+}
+
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #595959;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 545px;
+}
+
+.inputsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.submitBtn {
+  width: 107px;
+  height: 50px;
+  border-radius: 8px;
+  background: #ffc83d;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #1b1b1b;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 545px;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.13);
+}
+
+.footerText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #595959;
+  white-space: nowrap;
+}
+
+.loginLink {
+  background: none;
+  border: none;
+  color: #006D77;
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit;
+  margin-left: 4px;
+}
+
+/* Right — Yellow Curve Panel */
+.yellowCurve {
+  flex: 473;
+  flex-shrink: 0;
+  min-width: 0;
+  height: 680px;
+  position: relative;
+  z-index: 1;
+  margin-left: -15px; /* Pull to cover the transparent left sliver */
+}
+
+.curveImg {
+  object-fit: fill;
+  object-position: center;
+}
+
+/* Image Container overlapping */
+.imageContainer {
+  position: absolute;
+  left: 49.6%;
+  top: 60px;
+  width: 608px;
+  height: 538px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #ffffff;
+  z-index: 3;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+}
+
+.visualImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1440px) {
+  .modalContainer {
+    max-width: 95%;
+  }
+
+  .imageContainer {
+    width: min(608px, 43%);
+    height: auto;
+    aspect-ratio: 608 / 598;
+  }
+}
+
+@media (max-width: 991px) {
+  .modalContainer {
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .formCard {
+    flex: none;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .formInner {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    padding: 30px 20px; /* Reduced padding */
+    gap: 20px; /* Reduced gap */
+  }
+
+  .title {
+    font-size: 28px; /* Reduced font size */
+    text-align: center;
+  }
+
+  .description {
+    font-size: 13px; /* Reduced font size */
+    text-align: center;
+  }
+
+  .header {
+    align-items: center;
+  }
+
+  .form {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .submitBtn {
+    width: 100%; /* Full width for mobile */
+  }
+
+  .divider {
+    width: 100%;
+  }
+
+  .footerText {
+    font-size: 14px;
+  }
+
+  .yellowCurve, .imageContainer {
+    display: none;
+  }
+}

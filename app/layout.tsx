@@ -23,9 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={poppins.variable}>
-      <body style={{ margin: 0, padding: 0 }}>
+      <body style={{ margin: 0, padding: 0, display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
-        {children}
+        <main style={{ flex: 1 }}>
+          {children}
+        </main>
         <Footer/>
       </body>
     </html>

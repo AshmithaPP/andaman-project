@@ -1,0 +1,145 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modalCard {
+  width: 665px;
+  height: 545px;
+  background: #FDFDFD;
+  border: 1px solid #DDDDDD;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 60px;
+  position: relative;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.1);
+  animation: modalEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.modalCard::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.formInner {
+  width: 100%;
+  max-width: 545px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.backBtn {
+  width: 71px;
+  height: 32px;
+  border-radius: 8px;
+  padding: 4px 18px !important;
+  font-size: 14px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1;
+  color: #1B1B1B;
+  margin: 0;
+}
+
+.description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  color: #595959;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.inputsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.submitWrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.loginBtn {
+  width: 107px;
+  height: 50px;
+  border-radius: 8px;
+  background: #ffc83d;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  color: #1b1b1b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  .modalCard {
+    width: 95%;
+    height: auto;
+    padding: 30px 20px;
+  }
+
+  .formInner {
+    gap: 24px;
+  }
+
+  .title {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .header {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .loginBtn {
+    width: 100%;
+  }
+}

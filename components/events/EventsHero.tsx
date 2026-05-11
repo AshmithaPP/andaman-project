@@ -15,15 +15,22 @@ const EventsHero: React.FC = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const autoSlide = true;
   const autoSlideInterval = 5000;
 
   const nextSlide = useCallback(() => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-  }, [images.length]);
+    setTimeout(() => setIsTransitioning(false), 700);
+  }, [images.length, isTransitioning]);
 
   const goToSlide = (index: number) => {
+    if (isTransitioning || index === currentIndex) return;
+    setIsTransitioning(true);
     setCurrentIndex(index);
+    setTimeout(() => setIsTransitioning(false), 700);
   };
 
   useEffect(() => {
@@ -36,21 +43,26 @@ const EventsHero: React.FC = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.carousel}>
-          {images.map((image, index) => (
-            <div 
-              key={index} 
-              className={`${styles.slide} ${index === currentIndex ? styles.active : ''}`}
-            >
-              <Image
-                src={image}
-                alt={`Events Hero Slide ${index + 1}`}
-                fill
-                priority={index === 0}
-                className={styles.image}
-                sizes="(max-width: 1440px) 100vw, 1360px"
-              />
-            </div>
-          ))}
+          {/* Sliding strip: all images in a single horizontal row */}
+          <div
+            className={styles.strip}
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+            }}
+          >
+            {images.map((image, index) => (
+              <div key={index} className={styles.slide}>
+                <Image
+                  src={image}
+                  alt={`Events Hero Slide ${index + 1}`}
+                  fill
+                  priority={index === 0}
+                  className={styles.image}
+                  sizes="(max-width: 1440px) 100vw, 1880px"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Navigation Dots */}
