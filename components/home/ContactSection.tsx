@@ -52,7 +52,7 @@ const ContactSection: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
       const { name, value } = e.target;
       setForm((prev) => ({ ...prev, [name]: value }));
       if (errors[name as keyof FormErrors]) {

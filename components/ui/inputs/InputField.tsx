@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./InputField.module.css";
 
-export type InputFieldType = "text" | "email" | "tel" | "select" | "textarea" | "number";
+export type InputFieldType = "text" | "email" | "tel" | "select" | "textarea" | "number" | "password";
 
 export interface SelectOption {
   value: string;
