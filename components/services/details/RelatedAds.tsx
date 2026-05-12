@@ -10,8 +10,6 @@ const RELATED_ADS = [
   { id: 2, image: '/images/services/adservice2.png', text: 'Lorem Ipsum is a dummy text used in the 1800’s' },
   { id: 3, image: '/images/services/adservice3.png', text: 'Lorem Ipsum is a dummy text used in the 1800’s' },
   { id: 4, image: '/images/services/adservice4.png', text: 'Lorem Ipsum is a dummy text used in the 1800’s' },
-  { id: 5, image: '/images/services/adservice1.png', text: 'Lorem Ipsum is a dummy text used in the 1800’s' },
-  { id: 6, image: '/images/services/adservice2.png', text: 'Lorem Ipsum is a dummy text used in the 1800’s' },
 ];
 
 const RelatedAds: React.FC = () => {
