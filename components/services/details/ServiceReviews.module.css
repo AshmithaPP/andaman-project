@@ -1,0 +1,218 @@
+.section {
+  width: 100%;
+  padding: 5px 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1880px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  color: #000000;
+  margin: 0;
+}
+
+.titleMuted {
+  font-size: 16px;
+  font-weight: 400;
+  color: #595959;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: #E9E9E9;
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.shadowLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 238px;
+  height: 100%;
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0.07) 0%, #FFFFFF 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.shadowRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 235px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, #FFFFFF 100%);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.carouselTrack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.reviewsRow {
+  display: flex;
+  gap: 24px;
+  padding: 0 40px;
+  width: fit-content;
+  animation: scrollRow 60s linear infinite;
+}
+
+.reviewsRow:nth-child(2) {
+  margin-left: -100px;
+  animation: scrollRowReverse 60s linear infinite;
+}
+
+@keyframes scrollRow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRowReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.reviewCard {
+  width: 238px;
+  height: 125px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatarWrapper {
+  width: 31px;
+  height: 31px;
+  background: #D9D9D9;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatarImg {
+  object-fit: cover;
+}
+
+.userName {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.starsRow {
+  display: flex;
+  gap: 2px;
+}
+
+.reviewText {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #595959;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 24px 0;
+  }
+  .container {
+    padding: 0 16px;
+    gap: 20px;
+  }
+  .header {
+    gap: 12px;
+  }
+  .title {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .titleMuted {
+    font-size: 13px;
+  }
+  .shadowLeft, .shadowRight {
+    width: 60px;
+  }
+  .carouselTrack {
+    gap: 16px;
+  }
+  .reviewsRow {
+    gap: 16px;
+  }
+  .reviewCard {
+    width: 200px;
+    height: 110px;
+    padding: 12px;
+  }
+  .userName {
+    font-size: 14px;
+  }
+  .reviewText {
+    font-size: 11px;
+    line-height: 16px;
+  }
+}

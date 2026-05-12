@@ -1,0 +1,93 @@
+.searchBox {
+  width: 426.66px;
+  height: 54px;
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  box-shadow: 0px 4px 15.4px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  margin: 0 auto;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.locationIcon {
+  flex-shrink: 0;
+}
+
+.text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background: #919191;
+  opacity: 0.3;
+}
+
+.searchButton {
+  width: 26px;
+  height: 26px;
+  background: #FFC83D;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 8px;
+  flex-shrink: 0;
+}
+
+.searchIcon {
+  width: 10px;
+  height: 10px;
+  color: #E6AD1B;
+}
+
+@media (max-width: 600px) {
+  .searchBox {
+    width: 90%;
+    height: 42px;
+    gap: 8px;
+    padding: 0 10px;
+    border-radius: 12px;
+  }
+  .section {
+    gap: 4px;
+  }
+  .text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .divider {
+    height: 16px;
+  }
+  .searchButton {
+    width: 22px;
+    height: 22px;
+    padding: 4px;
+  }
+  .searchIcon {
+    width: 8px;
+    height: 8px;
+  }
+}

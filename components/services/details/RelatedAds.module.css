@@ -1,0 +1,113 @@
+.section {
+  width: 100%;
+  padding: 5px 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1880px;
+  padding: 0 40px;
+}
+
+.heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+  margin-bottom: 24px;
+}
+
+.carouselWrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.grid {
+  display: flex; /* Changed to flex for better control over card sizing */
+  gap: 24px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.card {
+  flex: 0 0 calc(25% - 18px); /* 4 cards per row with gap */
+  max-width: 322px;
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 322 / 206;
+  position: relative;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.content {
+  padding: 16px 20px;
+}
+
+.text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #000000;
+  margin: 0;
+}
+
+@media (max-width: 1400px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 10px 0;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+  }
+
+  .card {
+    flex: 0 0 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 260px;
+  }
+  .heading {
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 5px;
+  }
+}
