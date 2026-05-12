@@ -4,6 +4,7 @@
   background-color: #ffffff;
   display: flex;
   justify-content: center;
+  padding-bottom: 50px;
 }
 
 .container {
